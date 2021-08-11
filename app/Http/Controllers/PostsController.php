@@ -21,7 +21,9 @@ class PostsController extends Controller
     $posts = Post::latest();
        if(request('search'))
        {
-        $posts->where('title', 'like', '%' . request('search') . '%');
+        $posts
+        ->where('title', 'like', '%' . request('search') . '%')
+        ->orWhere('body', 'like', '%' . request('search'). '%');
        }
 
     return view('posts',[
@@ -58,7 +60,10 @@ class PostsController extends Controller
      */
     public function show(post $post)
     {
-        //
+        return view('post', [
+         'post' => $post,
+
+    ]);
     }
 
     /**

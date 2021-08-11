@@ -41,4 +41,13 @@
                         </span>
 
                         </li>
+                        <li class="px-2 py-2  text-center">
+                                @if(request()->is('posts/'.$post->slug ))
+                                <a href="/authors/{{$post->author->username}}" class="underline text-blue-400 text-bold">
+                                    View all posts by the author
+                        </a>
+                        @endif
+
+
+                        </li>
                     </ul>

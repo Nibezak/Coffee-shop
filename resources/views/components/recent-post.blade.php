@@ -28,7 +28,7 @@
                                 <img
                                     src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
                                     alt="avatar" class="object-cover w-8 h-8 rounded-full">
-                                    <a href="#"
+                                    <a href="/authors/{{$posts->author->username}}"
                                     class="mx-3 text-sm text-gray-700 hover:underline">
                                     {{$posts->author->username}}
                                 </a>

@@ -21,14 +21,7 @@ use App\Http\Controllers\PostsController;
 Route::get('/', [PostsController::class, 'index']);
 
 
-Route::get('/posts/{post:slug}', function (Post $post){
-
-    $authors = User::all();
-    return view('post', [
-         'post' => $post,
-
-    ]);
-});
+Route::get('/posts/{post:slug}', [PostsController::class, 'show']);
 Route::get('authors/{author:username}', function(User $author)
 {
     $author = $author->posts;

@@ -36,7 +36,7 @@
                                 class="text-blue-500 hover:underline">
                                 Read more
                             </a>
-
+                            @if(request()->is(['/','/tags']))
                             <div>
                                 <a href="/authors/{{$posts->author->username}}" class="flex items-center">
                                 <img
@@ -50,5 +50,6 @@
                                     </h1>
                                 </a>
                             </div>
+                            @endif
                         </div>
                     </div>

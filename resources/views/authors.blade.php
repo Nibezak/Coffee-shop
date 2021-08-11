@@ -40,9 +40,9 @@
                         </div>
 
                         <div class="mt-2">
-                            <h1  class="text-2xl font-bold text-gray-700 ">
+                        <a href="/posts/{{$post->slug}}" class="text-2xl font-bold text-gray-700 underline">
                            {!! $post->title !!}
-                    </h1>
+                    </a>
                             <div class="space-y-4 lg:text-lg leading-loose">
                        {!! $post->body !!}
                             </div>
