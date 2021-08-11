@@ -31,9 +31,9 @@ Route::get('/posts/{post:slug}', function (Post $post){
 });
 Route::get('authors/{author:username}', function(User $author)
 {
-
+    $author = $author->posts;
     return view('authors',[
-        'posts' => $author->posts,
+        'posts' => $author,
         'tags' => Tag::all(),
 
     ]);

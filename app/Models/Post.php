@@ -34,4 +34,5 @@ class Post extends Model
          {
             return $this->tags->take(5);
          }
+
 }

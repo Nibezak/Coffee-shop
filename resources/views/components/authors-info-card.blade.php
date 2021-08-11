@@ -24,7 +24,7 @@
                             <span class="font-semibold">Total Posts:</span>
                             <span class="ml-auto">
                                 <span class="">
-                                    {{ App\Models\Post::where('user_id', $post->user_id)->count()  }}
+                                    {{ App\Models\Post::where('user_id', $post->user_id)->count()}}
                         </span>
                         </span>
 
