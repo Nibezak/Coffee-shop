@@ -80,6 +80,6 @@
     </div>
     </div>
     @else
-<x-404-page />
-@endif
+    <x-404-page />
+    @endif
     </x-layout>
