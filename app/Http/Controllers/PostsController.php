@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 
-
+use Mtownsend\ReadTime\ReadTime;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -60,8 +60,10 @@ class PostsController extends Controller
      */
     public function show(post $post)
     {
+
         return view('post', [
          'post' => $post,
+         'read_time' =>  $readTime = (new ReadTime('post'))->get()
 
     ]);
     }

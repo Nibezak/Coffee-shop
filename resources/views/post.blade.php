@@ -39,9 +39,12 @@
     </div>
 
     <div class="mt-2">
-    <h1  class="text-2xl font-bold text-gray-700 ">
+    <h1  class="text-4xl font-bold p-4 text-gray-700 ">
     {!! $post->title !!}
     </h1>
+    <x-read-time>
+         {{ read_time($read_time)}}
+    </x-read-time>
     <div class="space-y-4 lg:text-lg leading-loose">
     {!! $post->body !!}
     </div>

@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Codeblog</title>
     <link rel="stylesheet" type="text/css" href="/css/tailwind.css">
+    <link rel="stylesheet" type="text/css" href="/css/editor.css">
+
     </head>
     <body>
     <!-- component -->
