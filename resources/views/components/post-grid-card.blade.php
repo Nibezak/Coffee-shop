@@ -9,7 +9,7 @@
 
 @foreach($post->postgrid_card_tags as $tag)
 
-<x-tag-link>
+<x-tag-link href="/tags/{{$tag->slug}}">
 {!! $tag->slug !!}
 </x-tag-link>
 @endforeach

@@ -26,6 +26,8 @@ class PostsController extends Controller
         ->orWhere('body', 'like', '%' . request('search'). '%');
        }
 
+
+
     return view('posts',[
         'posts' => $posts->get(),
     ]);
@@ -60,7 +62,7 @@ class PostsController extends Controller
      */
     public function show(post $post)
     {
-        $read_time =  $readTime = (new ReadTime('post'))->get();
+        $read_time =  $readTime = (new ReadTime([$post]))->get();
 
         return view('post', [
          'post' => $post,
