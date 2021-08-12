@@ -44,7 +44,7 @@
                            {!! $post->title !!}
                     </a>
                             <div class="space-y-4 lg:text-lg leading-loose">
-                       {!! $post->body !!}
+                       {!! $post->verse !!}
                             </div>
 
 

@@ -60,10 +60,11 @@ class PostsController extends Controller
      */
     public function show(post $post)
     {
+        $read_time =  $readTime = (new ReadTime('post'))->get();
 
         return view('post', [
          'post' => $post,
-         'read_time' =>  $readTime = (new ReadTime('post'))->get()
+         'read_time' =>$read_time
 
     ]);
     }

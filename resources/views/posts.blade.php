@@ -26,9 +26,10 @@
     @empty($posts) {{-- take this action if the posts are empty --}}
     <p> Sorry, no Posts yet! </p>
     @endempty
-
+    @if($posts->count() > 1)
     <x-post-card :posts="$posts[1]" /> {{-- show the post-card if the posts are not empty --}}
     <x-post-card :posts="$posts[2]" /> {{-- show the post-card if the posts are not empty --}}
+    @endif
     @if( $posts->count() < 2) {{-- if the available post are more that 2 create a grid for other posts --}}
 
     @forelse($posts as $post)

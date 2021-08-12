@@ -104,6 +104,9 @@
     </div>
 
 
+<div class="container">
+<x-progress-bar />
+</div>
 
 
     </x-layout>
