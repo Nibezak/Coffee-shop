@@ -1,105 +1,107 @@
 <x-layout>
 
 <x-navbar/>
-    <div class="px-6 py-8">
+<div class="px-6 py-8">
 
 
 
-        <div class="container flex justify-between mx-auto">
-            <div class="w-full lg:w-8/12">
-        <div class="flex items-center justify-between">
-            <x-action-button>
+<div class="container flex justify-between mx-auto">
+<div class="w-full lg:w-8/12">
+<div class="flex items-center justify-between">
+<x-action-button>
 
-                <x-previous-page-link />
+<x-previous-page-link />
 
-            </x-action-button>
+</x-action-button>
 
 <x-filters-bar />
 
 </div>
 @foreach($posts as $post)
 <div class="mt-6 max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-between">
+<div class="flex items-center justify-between">
 
-                            <span class="font-semibold text-gray-600">
+<span class="font-semibold text-gray-600">
 
-                             {!!$post->created_at->diffForHumans()!!}
+{!!$post->created_at->diffForHumans()!!}
 
-                            </span>
+</span>
 
-                                @foreach( $post->tags as $tag )
+@foreach( $post->tags as $tag )
 
-                        <x-tag-link href="/tags/{{$tag->slug}}">
+<x-tag-link href="/tags/{{$tag->slug}}">
 
-                                    {!! $tag->slug !!}
+{!! $tag->slug !!}
 
-                           </x-tag-link>
+</x-tag-link>
 
-                                @endforeach
+@endforeach
 
-                        </div>
+</div>
 
-                        <div class="mt-2">
-                        <a href="/posts/{{$post->slug}}" class="text-2xl font-bold text-gray-700 underline">
-                           {!! $post->title !!}
-                    </a>
-                            <div class="space-y-4 lg:text-lg leading-loose">
-                       {!! $post->verse !!}
-                            </div>
-
-
+<div class="mt-2">
+<a href="/posts/{{$post->slug}}" class="text-2xl font-bold text-gray-700 underline">
+{!! $post->title !!}
+</a>
+<div class="space-y-4 lg:text-lg leading-loose">
+{!! $post->verse !!}
+</div>
 
 
-                        </div>
 
-                        <div class="flex items-center justify-between mt-4">
+
+</div>
+
+<div class="flex items-center justify-between mt-4">
 <!-- component -->
 <!-- This is an example component -->
 <div class="flex justify-center items-center">
-    @foreach(range(1,5) as $star)
+@foreach(range(1,5) as $star)
 <x-star-rating />
 @endforeach
 
 </div>
-                            <div>
-                                <a href="/authors/{{$post->author->username}}" class="flex items-center">
+<div>
+<a href="/authors/{{$post->author->username}}" class="flex items-center">
 
-                                    <p class="font-semibold text-base">
-                                        post by <span class="font-bold">
-                                        {{$post->author->username}}
-                                </span>
-                                </p>
+<p class="font-semibold text-base">
+post by <span class="font-bold">
+{{$post->author->username}}
+</span>
+</p>
 
-                                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80" alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
+<img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80" alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
 
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+</a>
+</div>
+</div>
+</div>
 @endforeach
 
 
-            </div>
+</div>
 
-                <div class="px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
-
+<div class="px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
+@if($posts->count())
 <div class="bg-white p-3 border-t-4 border-blue-400">
-              @include('components.authors-info-card')
-                </div>
+<x-authors-info-card :post="$post"/>
+</div>
+@else
 
+@endif
 
- <h1 class="mb-4 text-xl font-bold text-gray-700">Notice Board</h1>
-                    <div>
-          <x-notice-board />
+<h1 class="mb-4 text-xl font-bold text-gray-700">Notice Board</h1>
+<div>
+<x-notice-board />
 
-      </div>
-                </div>
+</div>
+</div>
 
-        </div>
+</div>
 
 {{-- <x-post-grid-card :post="$post" class="{{$loop->iteration < 3 ? 'col-span-2 ' : 'col-span-3'}}"/> --}}
 
-    </div>
+</div>
 
 
 

@@ -1,7 +1,7 @@
     {{-- the layout file applied on every file on the project --}}
     <x-layout>
     {{-- the navbar contains the project's logo and the subscription link --}}
-    @if($posts->count() > 1)
+    @if($posts->count() > 0)
     <x-navbar/>
 
 
@@ -28,15 +28,16 @@
     <p> Sorry, no Posts yet! </p>
     @endempty
 
+    @if($posts->count() > 1)
     <x-post-card :posts="$posts[1]" /> {{-- show the post-card if the posts are not empty --}}
     <x-post-card :posts="$posts[2]" /> {{-- show the post-card if the posts are not empty --}}
-
+    @endif
     @if( $posts->count() < 2) {{-- if the available post are more that 2 create a grid for other posts --}}
 
     @forelse($posts as $post)
     <x-post-grid-card :post="$post" class="{{ $loop->iteration < 2 ? ' ' : 'col-span-3'}}"/>
     @empty
-    {{-- If the posts are less than 2 that means the grid is not need  take an action --}}
+    {{-- If the posts are less than 2 that means the grid is not need  take no action --}}
     @endforelse
     @endif
 
