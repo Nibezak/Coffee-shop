@@ -1,7 +1,7 @@
     {{-- the layout file applied on every file on the project --}}
     <x-layout>
     {{-- the navbar contains the project's logo and the subscription link --}}
-@if($posts->count())
+    @if($posts->count())
     <x-navbar/>
 
 
@@ -13,7 +13,7 @@
     <div class="w-full lg:w-full">
     <div class="flex items-center justify-around">
     {{-- the action button will display "All Posts " if we are at the home page and display a "Go back " BUTTON if we are elsewhere --}}
-{{--     <x-action-button>
+    {{--     <x-action-button>
     @if(request()->is('/'))
     All Posts
     @else
@@ -48,6 +48,6 @@
     </div>
     @else
     <x-404-page />
-@endif
+    @endif
 
     </x-layout>
