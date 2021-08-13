@@ -1,4 +1,4 @@
-    <div class="bg-gray-100 h-screen justify-center">
+    <div {{$attributes->merge(["class"=>"bg-gray-100 h-screen justify-center"])}} >
     <center class="mt-52 m-auto">
     <img src="/images/404-Emoji.png" class="rounded-full h-12 w-12 ">
     <div class=" tracking-widest">

@@ -24,13 +24,19 @@ class PostsController extends Controller
         $posts
         ->where('title', 'like', '%' . request('search') . '%')
         ->orWhere('body', 'like', '%' . request('search'). '%');
+
+        return view('SearchPage',[
+            'posts' => $posts->get()
+        ]);
        }
-
-
 
     return view('posts',[
         'posts' => $posts->get(),
     ]);
+
+
+
+
     }
 
     /**

@@ -1,7 +1,9 @@
     {{-- the layout file applied on every file on the project --}}
     <x-layout>
     {{-- the navbar contains the project's logo and the subscription link --}}
-    @if($posts->count() > 0)
+@empty($posts)
+<x-404-page/>
+@endempty
     <x-navbar/>
 
 
@@ -24,22 +26,9 @@
     <x-filters-bar />{{--  show all filters --}}
     </div>
 
-    @empty($posts) {{-- take this action if the posts are empty --}}
-    <p> Sorry, no Posts yet! </p>
-    @endempty
-
-
     <x-post-card :posts="$posts[1]" /> {{-- show the post-card if the posts are not empty --}}
     <x-post-card :posts="$posts[2]" /> {{-- show the post-card if the posts are not empty --}}
 
-    @if( $posts->count() < 2) {{-- if the available post are more that 2 create a grid for other posts --}}
-
-    @forelse($posts as $post)
-    <x-post-grid-card :post="$post" class="{{ $loop->iteration < 2 ? ' ' : 'col-span-3'}}"/>
-    @empty
-    {{-- If the posts are less than 2 that means the grid is not need  take no action --}}
-    @endforelse
-    @endif
 
 
 
@@ -64,23 +53,21 @@
     </div>
 
 
-
     <div class="lg:grid lg:grid-cols-3 lg:gap-4">
     @forelse( $posts->skip(3) as $post )
     <div>
 
-    <x-post-grid-card :post="$post" class="{{ $loop->iteration < 2 ? ' ' : 'col-span-3'}}"/>
+    <x-post-grid-card :post="$post" class="{{ $loop->iteration < 2 ? 'col-span-2 ' : 'col-span-3'}}"/>
 
     </div>
     @empty
-
+   No More posts!
     @endforelse
     </div>
+
     <div class="mt-8">
     <x-pagination-bar />
     </div>
     </div>
-    @else
-    <x-404-page />
-    @endif
+
     </x-layout>
