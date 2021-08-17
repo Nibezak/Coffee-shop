@@ -12,6 +12,8 @@ class Post extends Model
     protected $guarded=['id','created_at','updated_at'];
     protected $with = ['tags', 'author'];
 
+
+
      public function author()
      {
              return $this->belongsTo(User::class, 'user_id');

@@ -19,23 +19,11 @@ class PostsController extends Controller
     public function index()
     {
     $posts = Post::latest();
-       if(request('search'))
-       {
-        $posts
-        ->where('title', 'like', '%' . request('search') . '%')
-        ->orWhere('body', 'like', '%' . request('search'). '%');
-
-        return view('SearchPage',[
-            'posts' => $posts->get()
-        ]);
-       }
+    echo $this->getPosts();
 
     return view('posts',[
-        'posts' => $posts->get(),
+    'posts' => $posts->get(),
     ]);
-
-
-
 
     }
 
@@ -69,6 +57,7 @@ class PostsController extends Controller
     public function show(post $post)
     {
         $read_time =  $readTime = (new ReadTime([$post]))->get();
+
 
         return view('post', [
          'post' => $post,
@@ -110,4 +99,22 @@ class PostsController extends Controller
     {
         //
     }
+     protected function getPosts()
+     {
+    $posts = Post::latest();
+
+        if(request(['search']) ?? false)
+        {
+         $posts
+    ->where('title', 'like', '%' . request('search') . '%')
+    ->orWhere('body', 'like', '%' . request('search'). '%');
+
+    return view('SearchPage',[
+        'posts' => $posts->get()
+    ]);
+        }
+
+
+
+     }
 }

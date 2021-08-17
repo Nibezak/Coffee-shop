@@ -13,7 +13,7 @@
 
 <x-tag-link href="/tags/{{$tag->slug}}">
 
-{{$tag->name }}
+<p>{{$tag->name }}</p>
 
 </x-tag-link>
 

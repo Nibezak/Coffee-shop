@@ -18,10 +18,10 @@
     */
 
 
-    Route::get('/', [PostsController::class, 'index']);
+    Route::get('/', [PostsController::class, 'index'])->name('all-posts');
 
 
-    Route::get('/posts/{post:slug}', [PostsController::class, 'show']);
+    Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');
 
     Route::get('authors/{author:username}', function(User $author)
     {

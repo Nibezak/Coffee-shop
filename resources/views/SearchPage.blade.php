@@ -13,13 +13,9 @@
     <div class="w-full lg:w-full">
     <div class="flex items-center justify-around">
     {{-- the action button will display "All Posts " if we are at the home page and display a "Go back " BUTTON if we are elsewhere --}}
-    {{--     <x-action-button>
-    @if(request()->is('/'))
-    All Posts
-    @else
-    <x-previous-page-link />
-    @endif
-    </x-action-button> --}}
+        <x-action-button class="inline-flex tracking-widest">
+          <p class="text-xl font-base font-normal">  results for <span class="font-semibold underline">{{request('search')}}</span><p>
+    </x-action-button>
 
     <x-filters-bar />{{--  show all filters --}}
     </div>
