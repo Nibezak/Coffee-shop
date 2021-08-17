@@ -22,7 +22,7 @@ class PostsController extends Controller
     echo $this->getPosts();
 
     return view('posts',[
-    'posts' => $posts->get(),
+    'posts' => $posts->simplePaginate(24),
     ]);
 
     }

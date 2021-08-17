@@ -54,19 +54,20 @@
 
 
     <div class="lg:grid lg:grid-cols-3 lg:gap-4">
-    @forelse( $posts->skip(3) as $post )
+    @foreach( $posts->skip(3) as $post )
     <div>
 
     <x-post-grid-card :post="$post" class="{{ $loop->iteration < 2 ? 'col-span-2 ' : 'col-span-3'}}"/>
 
     </div>
-    @empty
-   No More posts!
-    @endforelse
+
+@endforeach
     </div>
 
     <div class="mt-8">
-    <x-pagination-bar />
+    <x-pagination-bar>
+        {{$posts->links()}}
+    </x-pagination-bar>
     </div>
     </div>
 
