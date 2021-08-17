@@ -3,7 +3,7 @@
     </div>
 <div
       x-data="scrollProgress"
-      class="fixed p inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5"
+      class="fixed  inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5"
     >
       <!-- Building a Progress Ring: https://css-tricks.com/building-progress-ring-quickly/ -->
       <svg class="w-20 h-20">
