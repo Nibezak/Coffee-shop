@@ -54,7 +54,7 @@
         <section class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28 space-y-12 sm:space-y-16 xl:space-y-24"><!-- Start Points -->
             <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
                 <div class="w-full lg:w-1/2">
-                    <img class="w-full" src="/images/illustrate-a-post.png" alt="">
+                    <img class="w-full" src="/images/block-1.png" alt="">
                 </div>
                 <div class="w-full lg:w-1/2">
                     <div class="space-y-5 sm:space-y-6">
@@ -75,7 +75,7 @@
             </div>
             <div class="flex flex-col lg:flex-row-reverse justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
                 <div class="w-full lg:w-1/2">
-                    <img class="w-full" src="/images/illustrate-search.png" alt="">
+                    <img class="w-full" src="/images/block-2.png" alt="">
                 </div>
                 <div class="w-full lg:w-1/2">
                     <div class="space-y-5 sm:space-y-6">
@@ -96,7 +96,7 @@
             </div>
             <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
                 <div class="w-full lg:w-1/2">
-                    <img class="w-full h-4/5 rounded-md" src="/images/illustrate-job.jpg" alt="">
+                    <img class="w-full h-4/5 rounded-md" src="/images/block-3.jpg" alt="">
                 </div>
                 <div class="w-full lg:w-1/2">
                     <div class="space-y-5 sm:space-y-6">
