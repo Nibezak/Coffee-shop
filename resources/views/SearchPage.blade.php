@@ -1,4 +1,5 @@
     {{-- the layout file applied on every file on the project --}}
+
     <x-layout>
     {{-- the navbar contains the project's logo and the subscription link --}}
     @if($posts->count())

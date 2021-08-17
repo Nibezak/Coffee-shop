@@ -17,7 +17,9 @@
     |
     */
 
-
+    Route::get('/', function(){
+        return view('welcome');
+    });
     Route::get('/posts', [PostsController::class, 'index'])->name('all-posts');
     Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');
     Route::get('tags/{tag:slug}', [PostsController::class, 'showTags']);

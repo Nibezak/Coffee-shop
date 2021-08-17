@@ -19,7 +19,8 @@ class PostsController extends Controller
     public function index()
     {
     $posts = Post::latest();
-    echo $this->getPosts();
+
+    if(request('search')){return $this->getPosts();}
 
     return view('posts',[
     'posts' => $posts->simplePaginate(24),
@@ -103,8 +104,7 @@ class PostsController extends Controller
      {
     $posts = Post::latest();
 
-        if(request(['search']) ?? false)
-        {
+
          $posts
     ->where('title', 'like', '%' . request('search') . '%')
     ->orWhere('body', 'like', '%' . request('search'). '%');
@@ -114,11 +114,10 @@ class PostsController extends Controller
     return view('SearchPage',[
         'posts' => $posts->get()
     ]);
-        }
-
-
 
      }
+
+
       public function showTags(Tag $tag)
       {
         return view('post-tags', [
