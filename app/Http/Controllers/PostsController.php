@@ -102,12 +102,16 @@ class PostsController extends Controller
      protected function getPosts()
      {
     $posts = Post::latest();
-
+    $user = User::all();
         if(request(['search']) ?? false)
         {
          $posts
     ->where('title', 'like', '%' . request('search') . '%')
     ->orWhere('body', 'like', '%' . request('search'). '%');
+
+      $user
+    ->where('username', 'like', '%' . request('search') . '%')
+    ->orWhere('name', 'like', '%' . request('search'). '%');
 
     return view('SearchPage',[
         'posts' => $posts->get()
@@ -117,4 +121,10 @@ class PostsController extends Controller
 
 
      }
+      public function showTags(Tag $tag)
+      {
+        return view('post-tags', [
+    'posts' => $tag->posts
+    ]);
+      }
 }

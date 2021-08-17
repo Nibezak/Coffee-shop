@@ -1,7 +1,7 @@
     <x-layout>
 
     <x-navbar/>
-    <div class="px-6 py-8">
+    <div class="px-2 lg:px-24 py-8">
 
 
 
@@ -39,7 +39,7 @@
     </div>
 
     <div class="mt-2">
-    <h1  class="text-4xl font-bold p-4 text-gray-700 ">
+    <h1  class="text-xl lg:text-4xl  font-bold p-4 text-gray-700 ">
     {!! $post->title !!}
     </h1>
     <x-read-time>
@@ -101,12 +101,12 @@
 
 
 
+
     </div>
 
 
 <div class="container">
 <x-progress-bar />
 </div>
-
 
     </x-layout>

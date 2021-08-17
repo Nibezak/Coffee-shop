@@ -18,10 +18,9 @@
     */
 
 
-    Route::get('/', [PostsController::class, 'index'])->name('all-posts');
-
-
+    Route::get('/posts', [PostsController::class, 'index'])->name('all-posts');
     Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');
+    Route::get('tags/{tag:slug}', [PostsController::class, 'showTags']);
 
     Route::get('authors/{author:username}', function(User $author)
     {
@@ -34,9 +33,3 @@
     });
 
 
-    Route::get('tags/{tag:slug}', function(Tag $tag)
-    {
-    return view('post-tags', [
-    'posts' => $tag->posts
-    ]);
-    });

@@ -64,8 +64,8 @@
 <div>
 <a href="/authors/{{$post->author->username}}" class="flex items-center">
 
-<p class="font-semibold text-base">
-post by <span class="font-bold">
+<p class="font-semibold text-base inline-flex">
+<span class="hidden lg:block md:block px-2">post by</span> <span class="font-bold">
 {{$post->author->username}}
 </span>
 </p>

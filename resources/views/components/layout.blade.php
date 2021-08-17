@@ -12,7 +12,7 @@
     </head>
     <body>
     <!-- component -->
-    <div class="overflow-x-hidden bg-gray-100">
+    <div class="overflow-x-hidden  bg-gray-100">
 
     {{$slot}}
     </div>
