@@ -20,7 +20,9 @@
                     <a href="/posts" class="hover:text-blue-700 transition-colors duration-200">Blogs</a>
                     <a href="#0" class="hover:text-blue-700 transition-colors duration-200">About</a>
                     <a href="#0" class="hover:text-blue-700 transition-colors duration-200">Contacts</a>
+                    <a href="/register">
                     <button class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-2.5 px-5 rounded-lg text-white font-semibold">Get Started</button>
+                </a>
                 </div>
                 <div class="md:hidden">
                     <a href="#0" class="">
@@ -41,10 +43,10 @@
                     </div>
                     <div class="flex flex-col sm:flex-row space-y-2.5 sm:space-y-0">
                         <input class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none focus:border-blue-600" type="text" placeholder="Your email address">
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">Get Started</button>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">NewsLetter</button>
                     </div>
                 </div>
-                <div class="">
+                <div class=" shadow-2xl">
                     <img class="rounded-md" src="/images/hero-illustration.png" alt="Illustration-page">
                 </div>
             </div>
@@ -53,7 +55,8 @@
 
         <section class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28 space-y-12 sm:space-y-16 xl:space-y-24"><!-- Start Points -->
             <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
-                <div class="w-full lg:w-1/2">
+                <div class="w-full lg:w-1/2 shadow-2xl">
+
                     <img class="w-full" src="/images/block-1.png" alt="">
                 </div>
                 <div class="w-full lg:w-1/2">
@@ -74,7 +77,7 @@
                 </div>
             </div>
             <div class="flex flex-col lg:flex-row-reverse justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
-                <div class="w-full lg:w-1/2">
+                <div class="w-full lg:w-1/2 shadow-2xl">
                     <img class="w-full" src="/images/block-2.png" alt="">
                 </div>
                 <div class="w-full lg:w-1/2">
@@ -95,7 +98,7 @@
                 </div>
             </div>
             <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
-                <div class="w-full lg:w-1/2">
+                <div class="w-full lg:w-1/2 shadow-2xl">
                     <img class="w-full h-4/5 rounded-md" src="/images/block-3.jpg" alt="">
                 </div>
                 <div class="w-full lg:w-1/2">

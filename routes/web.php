@@ -5,6 +5,8 @@
     use  Illuminate\Database\Eloquent\Model;
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\PostsController;
+    use App\Http\Controllers\RegisterController;
+
 
     /*
     |--------------------------------------------------------------------------
@@ -22,16 +24,11 @@
     });
     Route::get('/posts', [PostsController::class, 'index'])->name('all-posts');
     Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');
-    Route::get('tags/{tag:slug}', [PostsController::class, 'showTags']);
+    Route::get('tags/{tag:slug}', [PostsController::class, 'showPostTags'])->name('show-tagPosts');
+    Route::get('authors/{author:username}',[PostsController::class , 'showAuthorPosts'])->name('show-authorPosts');
 
-    Route::get('authors/{author:username}', function(User $author)
-    {
-    $author = $author->posts;
-    return view('authors',[
-    'posts' => $author,
-    'tags' => Tag::all(),
-
-    ]);
-    });
+    // RegisterController
+    Route::get('/register',[RegisterController::class, 'create'])->name('New-user');
+    Route::post('/register',[RegisterController::class, 'store'])->name('register-user');
 
 
