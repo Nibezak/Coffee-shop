@@ -1,7 +1,7 @@
 
     <div class="image overflow-hidden">
 
-    <img class="h-auto w-full mx-auto" src="https://i.pravatar.cc/500" alt="">
+    <img class="h-auto w-full mx-auto" src="https://i.pravatar.cc/500?u={{$post->author->username}}" alt="">
 
     </div>
 

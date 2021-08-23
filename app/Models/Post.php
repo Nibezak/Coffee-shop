@@ -32,9 +32,8 @@ class Post extends Model
 
         }
 
-         public function getPostCardTagsAttribute()
-         {
-            return $this->tags->take(5);
-         }
-
+        public function comments()
+        {
+            return $this->hasMany(Comment::class);
+        }
 }

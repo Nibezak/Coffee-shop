@@ -93,7 +93,15 @@
     <h1 class="mb-4 text-xl font-bold text-gray-700">Notice Board</h1>
     <div>
     <x-notice-board />
-
+    <!-- component -->
+    <section>
+        <x-comment-section.add-comment/>
+    </section>
+    <section>
+@foreach($post->comments as $comment)
+<x-comment-section.comment-block :comment="$comment" />
+@endforeach
+</section>
     </div>
     </div>
 

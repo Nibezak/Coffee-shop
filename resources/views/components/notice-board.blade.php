@@ -7,8 +7,8 @@
 <p class="mb-2 text-sm font-medium text-gray-700">
 Code.Initiative
 </p>
-<p class="text-md inline-flex font-semibold text-gray-500">
-let's get <strong class="px-2"> 1,000+ </strong> Subscribers
+<p class="text-md  font-semibold text-gray-500">
+let's get <b>1000+</b> Subscribers
 </p>
 </div>
 </div></a>
@@ -26,8 +26,7 @@ Sponsor-ship
 </div>
 </div>
 </div>
-
-
 <div class="py-3">
+
 
 </div>
