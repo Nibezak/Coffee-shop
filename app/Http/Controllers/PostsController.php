@@ -24,7 +24,7 @@ class PostsController extends Controller
     $posts = Post::latest();
     if(request('search')){return $this->getPosts();}
     return view('posts',[
-    'posts' => $posts->simplePaginate(24),
+    'posts' => $posts->simplePaginate(4),
     ]);
 
     }
@@ -115,8 +115,12 @@ class PostsController extends Controller
 
 
       public function showPostTags(Tag $tag)
+<<<<<<< HEAD
         {
             // show all posts associated with a particular Tag
+=======
+      {
+>>>>>>> bafa905f7d8ee7d604d7a841a02069c14cb11783
         return view('post-tags', [
         'posts' => $tag->posts
         ]);

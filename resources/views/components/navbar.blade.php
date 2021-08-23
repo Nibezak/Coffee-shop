@@ -1,4 +1,8 @@
+<<<<<<< HEAD
     <nav class="px-6 py-4 mb-4 bg-white shadow">
+=======
+    <nav class="px-6 py-4 bg-white shadow">
+>>>>>>> bafa905f7d8ee7d604d7a841a02069c14cb11783
     <div class=" flex flex-col mx-auto md:flex-row md:items-center md:justify-between">
     <div class="flex items-center justify-between">
     <div>
