@@ -18,11 +18,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // fetch the latest posts
-        // // if their is search in the request, then get all the post valide to that search
-        // // then load
     $posts = Post::latest();
+
     if(request('search')){return $this->getPosts();}
+
     return view('posts',[
     'posts' => $posts->simplePaginate(4),
     ]);
@@ -58,8 +57,9 @@ class PostsController extends Controller
      */
     public function show(post $post)
     {
-        //grab a post and estimate the time it will take to read it using "read_time package" that you can configure in read_time.php
         $read_time =  $readTime = (new ReadTime([$post]))->get();
+
+
         return view('post', [
          'post' => $post,
          'read_time' =>$read_time
@@ -102,31 +102,29 @@ class PostsController extends Controller
     }
      protected function getPosts()
      {
-        // grab all posts that have a similar name to that that is passed in the request
     $posts = Post::latest();
-    $posts
+
+
+         $posts
     ->where('title', 'like', '%' . request('search') . '%')
     ->orWhere('body', 'like', '%' . request('search'). '%');
+
+
+
     return view('SearchPage',[
-    'posts' => $posts->get()
+        'posts' => $posts->get()
     ]);
 
      }
 
 
       public function showPostTags(Tag $tag)
-<<<<<<< HEAD
-        {
-            // show all posts associated with a particular Tag
-=======
       {
->>>>>>> bafa905f7d8ee7d604d7a841a02069c14cb11783
         return view('post-tags', [
-        'posts' => $tag->posts
-        ]);
-        }
-
-        public function showAuthorPosts(User $author)
+    'posts' => $tag->posts
+    ]);
+      }
+         public function showAuthorPosts(User $author)
         {
         $author = $author->posts;
         return view('authors',[

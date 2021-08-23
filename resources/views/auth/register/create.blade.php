@@ -18,7 +18,7 @@
   <form class="space-y-5 mt-5"  method="POST" action="/register">
   @csrf
   <label for="username" class=" text-xs font-semibold font-mono text-gray-600 uppercase ml-2">Username</label>
-  <input type="username" id="username" class="w-full h-  rounded px-3
+  <input type="username" id="username" class="w-full h-10  rounded px-3
   @error('username') border-b-2 border-red-500  @enderror"
   placeholder="Username" name="username" autocomplete="username"
   value="{{old('username')}}"
@@ -28,7 +28,7 @@
   @enderror
 
   <label for="name" class=" block text-xs font-semibold font-mono text-gray-600 uppercase ml-2">name</label>
-  <input type="name" id="name" class="w-full h-  rounded px-3
+  <input type="name" id="name" class="w-full h-10  rounded px-3
   @error('name') border-b-2 border-red-500  @enderror"
   placeholder="name" name="name" autocomplete="username"
   value="{{old('name')}}"
@@ -39,7 +39,7 @@
 
   <label for="email" class="block  text-xs font-semibold font-mono text-gray-600 uppercase ml-2">email</label>
 
-  <input type="email" id="email" class="w-full h-  rounded px-3
+  <input type="email" id="email" class="w-full h-10  rounded px-3
   @error('email') border-b-2 border-red-500  @enderror"
   placeholder="email" name="email" autocomplete="email"
   value="{{old('email')}}"
@@ -51,7 +51,7 @@
   <label for="password" class=" block text-xs font-semibold font-mono text-gray-600 uppercase ml-2">password</label>
 
   <div class=" items-center   rounded px-3">
-  <input type="password" id="password" class="w-full h-  rounded px-3
+  <input type="password" id="password" class="w-full h-10  rounded px-3
   @error('password') border-b-2 border-red-500  @enderror"
   placeholder="password" name="password" autocomplete="password"
   required/>
@@ -63,7 +63,7 @@
   <label for="password" class=" block text-xs font-semibold font-mono text-gray-600 uppercase ml-2">Comfirm Password</label>
 
   <div class=" flex items-center   rounded px-3">
-  <input class=" w-full h- border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+  <input class=" w-full h-10 border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
   id="password"
   type="password"
   name="password_confirmation"
@@ -93,8 +93,8 @@
   {{-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES
   <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
   <div>
-  <a title="Buy me a beer" href="https://www.buymeacoffee.com/emichel" target="_blank" class=" w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-">
-  <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e/60fde11b6be57094e0abc69d9c2622a.jpg"/>
+  <a title="Buy me a beer" href="https://www.buymeacoffee.com/emichel" target="_blank" class=" w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-10">
+  <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e10/60fde1011b6be57094e0abc69d9c2622a.jpg"/>
   </a>
   </div>
   </div> --}}
