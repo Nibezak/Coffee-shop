@@ -23,7 +23,7 @@ class PostsController extends Controller
     if(request('search')){return $this->getPosts();}
 
     return view('posts',[
-    'posts' => $posts->simplePaginate(24),
+    'posts' => $posts->simplePaginate(4),
     ]);
 
     }
@@ -118,7 +118,7 @@ class PostsController extends Controller
      }
 
 
-      public function showTags(Tag $tag)
+      public function showPostTags(Tag $tag)
       {
         return view('post-tags', [
     'posts' => $tag->posts

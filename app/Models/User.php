@@ -17,6 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'username',
         'name',
         'email',
         'password',
@@ -42,7 +43,10 @@ class User extends Authenticatable
     ];
 
 
-
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
      public function posts()
      {
         return $this->hasMany(Post::class)->orderBy('created_at','DESC');

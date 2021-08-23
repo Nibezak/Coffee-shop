@@ -13,9 +13,12 @@
     <body>
     <!-- component -->
     <div class="overflow-x-hidden  bg-gray-100">
+<!-- component -->
 
     {{$slot}}
     </div>
-
+<x-flash-message />
     </body>
     </html>
+
+
