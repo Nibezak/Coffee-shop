@@ -1,13 +1,19 @@
+@auth
+@props(['post'])
 <div class="flex mx-auto items-center justify-center shadow-lg  mx-8 mb-4 max-w-lg">
-   <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2" method="POST">
+   <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2" method="POST" action="/post/{{$post->slug}}/comments">
       @csrf
       <div class="flex flex-wrap -mx-3 mb-6">
              <div class="pr-2 px-2 inline-flex">
-        <img src="https://i.pravatar.cc/110" width="30" height="30" class="rounded-full border border-8 border-gray-200">
-        <span class="px-2 py-1 text-sm font-semibold text-gray-900">John Doe</span>
+        <img src="https://i.pravatar.cc/?u={{auth()->user()->username}}" width="30" height="30" class="rounded-full border border-8 border-gray-200">
+        <span class="px-2 py-1 text-sm font-semibold text-gray-900">{{Auth::user()->username}}</span>
         </div>
          <div class="w-full md:w-full px-3 mb-2 mt-2">
-            <textarea class="bg-gray-100 text-sm rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" placeholder='Type a Comment' required></textarea>
+            <textarea class="bg-gray-100 text-sm rounded
+             border border-gray-400 leading-normal
+             resize-none w-full h-20 py-2 px-3
+             font-medium placeholder-gray-700 focus:outline-none focus:bg-white
+             @error('body') border border-2 border-red-500  @enderror" name="body" placeholder='Type a Comment' required></textarea>
          </div>
          <div class="w-full md:w-full inline-flex items-start md:w-full px-3">
 
@@ -17,4 +23,8 @@
          </div>
       </form>
    </div>
-
+   @else
+   <p class="text-sm ">
+   <a href="{{ route('login') }}" class="text-blue-500">Login</a> or <a href="{{route('register') }}" class="text-blue-500">create an account</a> , to add a comment
+</p>
+@endauth

@@ -117,20 +117,4 @@ class PostsController extends Controller
 
      }
 
-
-      public function showPostTags(Tag $tag)
-      {
-        return view('post-tags', [
-    'posts' => $tag->posts
-    ]);
-      }
-         public function showAuthorPosts(User $author)
-        {
-        $author = $author->posts;
-        return view('authors',[
-        'posts' => $author,
-        'tags' => Tag::all(),
-
-        ]);
-        }
 }

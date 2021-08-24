@@ -13,4 +13,10 @@ class Tag extends Model
      {
         return $this->belongsToMany(Post::class)->orderBy('created_at', 'DESC');
      }
+        public function getPostgridCardTagsAttribute(){
+
+        return $this->tags->take(3);
+
+        }
+
 }

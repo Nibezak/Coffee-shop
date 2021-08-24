@@ -27,7 +27,7 @@
 
     </span>
 
-    @foreach( $post->post_card_tags as $tag )
+    @foreach( $post->PostgridCardTags as $tag )
 
     <x-tag-link href="/tags/{{$tag->slug}}">
 
@@ -77,7 +77,7 @@
     </div>
     </div>
     @endforeach
-    {{-- div-end --}}
+
 
     </div>
 

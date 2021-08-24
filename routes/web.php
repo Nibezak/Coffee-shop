@@ -7,6 +7,12 @@
     use App\Http\Controllers\PostsController;
     use App\Http\Controllers\SessionsController;
     use App\Http\Controllers\RegisterController;
+    use App\Http\Controllers\PostTagsController;
+    use App\Http\Controllers\AuthorsController;
+    use App\Http\Controllers\PostCommentsController;
+
+
+
 
 
     /*
@@ -23,10 +29,11 @@
     Route::get('/', function(){
         return view('welcome');
     });
+    // everything assoicated with finding a post and any other attachment to the post
     Route::get('posts', [PostsController::class, 'index'])->name('all-posts');
     Route::get('posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');
-    Route::get('tags/{tag:slug}', [PostsController::class, 'showPostTags'])->name('show-tagPosts');
-    Route::get('authors/{author:username}',[PostsController::class , 'showAuthorPosts'])->name('show-authorPosts');
+    Route::get('tags/{tag:slug}', [PostTagsController::class, 'show'])->name('show-tagPosts');
+    Route::get('authors/{author:username}',[AuthorsController::class , 'show'])->name('show-authorPosts');
 
     // RegisterController
     Route::get('register',[RegisterController::class, 'create'])->middleware('guest')->name('register');
@@ -36,4 +43,6 @@
     Route::post('login', [SessionsController::class, 'store']);
     Route::post('logout', [ SessionsController::class, 'destroy'])->middleware('auth'); // logout
 
+    //Posting a comment
+    Route::post('post/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
