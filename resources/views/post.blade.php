@@ -107,8 +107,17 @@
     </div>
 
     </div>
+    {{-- visible only on mobile devices --}}
+    <section class="block lg:hidden md:hidden">
+        <div class="py-6 px-4 ml-2">
 
+        <x-comment-section.add-comment :post="$post"/>
+        </div>
 
+@foreach($post->comments as $comment)
+<x-comment-section.comment-block :comment="$comment" />
+@endforeach
+</section>
 
 
     </div>

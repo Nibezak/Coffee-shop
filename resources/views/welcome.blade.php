@@ -1,108 +1,61 @@
+
 <x-layout>
 
-<body class="font-sans antialiased" style="">
-    <main class="">
-        <header class="container mx-auto mt-6 px-4 flex justify-between items-center"><!-- Start Header -->
-            <div class="">
+<!-- component -->
+<header class="bg-white dark:bg-gray-800">
+    <nav class="bg-white dark:bg-gray-800">
+        <div class="container p-6 mx-auto">
                     <span class="text-blue-500 text-2xl font-mono font-semibold">CodeInit.Inc</span>
 
-            </div>
-            <div class="flex items-center">
-                <div class="hidden md:block space-x-6 font-medium">
-                    <a href="#0" class="hover:text-blue-700 transition-colors duration-200">Features</a>
-                    <a href="/posts" class="hover:text-blue-700 transition-colors duration-200">Blogs</a>
-                    <a href="#0" class="hover:text-blue-700 transition-colors duration-200">About</a>
-                    <a href="/login" class="text-gray-400 hover:text-blue-700 text-lg transition-colors duration-200">Login</a>
-                    <a href="{{route('register')}}" class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-2.5 px-5 rounded-lg text-white font-semibold">Get Started</a>
-                </div>
-                <toggle-button/>
-            </div>
-        </header><!-- End Header -->
+            <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
+                <a href="#" class="text-gray-800 dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6">home</a>
 
-        <section class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28"><!-- Start Hero -->
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
-                <div class="space-y-8 lg:space-y-12">
-                    <div class="space-y-6">
-                        <h1 class="text-4xl sm:text-6xl font-semibold">Landing page for <br>your online service</h1>
-                        <p class="max-w-sm text-xl">Sed ea enim et expedita quo. Sint consequuntur nobis expedita mollitia voluptatem aut est a quia.</p>
-                    </div>
-                    <div class="flex flex-col sm:flex-row space-y-2.5 sm:space-y-0">
-                        <input class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none focus:border-blue-600" type="text" placeholder="Your email address">
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">Get Started</button>
-                    </div>
-                </div>
-                <div class="">
-                    <img class="rounded-md" src="/images/hero-illustration.png" alt="Illustration-page">
-                </div>
-            </div>
-        </section><!-- End Hero -->
+                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">features</a>
 
+                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">About us </a>
 
-        <section class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28 space-y-12 sm:space-y-16 xl:space-y-24"><!-- Start Points -->
-            <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
-                <div class="w-full lg:w-1/2">
-                    <img class="w-full" src="/images/illustrate-a-post.png" alt="">
-                </div>
-                <div class="w-full lg:w-1/2">
-                    <div class="space-y-5 sm:space-y-6">
-                        <h3 class="text-3xl md:text-4xl font-semibold">Incredible</h3>
-                        <p class="w-full sm:w-4/5 text-lg">
-                            Consequatur quidem deserunt qui fugit cumque ut esse est dignissimos. Itaque quia et veritatis. Qui voluptatem dolor quia exercitationem sed similique. Incidunt quae suscipit nihil deleniti. Possimus praesentium sunt aut tempora ut alias.
-                        </p>
-                        <button class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-2.5 px-5 rounded-lg text-white font-semibold flex space-x-2.5">
-                            <span>Get Started</span>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                  </svg>
-                            </span>
-                        </button>
+                <a href="{{route('all-posts')}}" class="font-semibold border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">blog</a>
+                @guest
+                <a href="{{route('login')}}" class="text-lg border-b-2 border-transparent  text-blue-500 hover:border-blue-500 mx-1.5 sm:mx-6">login</a>
+
+               <a href="{{route('register')}}" class="text-lg border-b-2 border-transparent  text-blue-500 hover:border-blue-500 mx-1.5 sm:mx-6">register</a>
+@endguest
+            </div>
+        </div>
+    </nav>
+
+    <div class="container flex flex-col px-6 py-4 mx-auto space-y-6 md:h-128 md:py-16 md:flex-row md:items-center md:space-x-6">
+        <div class="flex flex-col items-center w-full md:flex-row md:w-1/2">
+            <div class="flex justify-center order-2 mt-6 md:mt-0 md:space-y-3 md:flex-col">
+                <button class="w-3 h-3 mx-2 bg-blue-500 rounded-full md:mx-0 focus:outline-none"></button>
+                <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full md:mx-0 focus:outline-none hover:bg-blue-500"></button>
+                <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full md:mx-0 focus:outline-none hover:bg-blue-500"></button>
+                <button class="w-3 h-3 mx-2 bg-gray-300 rounded-full md:mx-0 focus:outline-none hover:bg-blue-500"></button>
+            </div>
+
+            <div class="max-w-lg md:mx-12 md:order-2">
+                <h1 class="text-3xl font-medium tracking-wide text-gray-800 dark:text-white md:text-4xl">Programming News around </h1>
+                <p class="mt-4 text-gray-600 text-lg dark:text-gray-300">We all a Team of developers who loves publishing about new technologies we have found and share them with you, Checkout out our <a href="{{ route('all-posts') }}" class="text-blue-500 underline">Blog page</a> to get started</p>
+                <div class="mt-6">
+                    {{-- newsletter section --}}
+                        <form method="POST" action="newsletter/subscribe">
+                            @csrf
+                    <div class="mb-6 in">
+                        <label for="email" class="block font-semibold mb-2 text-md text-gray-600 dark:text-gray-400">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="you@company.com" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500 @error('email') border border-8 border-red-600 border-opacity-100  @enderror" />
                     </div>
+
+                    <button class="block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md md:inline hover:bg-blue-400">Sign up for NewsLetter</button>
+                </form>
                 </div>
             </div>
-            <div class="flex flex-col lg:flex-row-reverse justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
-                <div class="w-full lg:w-1/2">
-                    <img class="w-full" src="/images/illustrate-search.png" alt="">
-                </div>
-                <div class="w-full lg:w-1/2">
-                    <div class="space-y-5 sm:space-y-6">
-                        <h3 class="text-3xl md:text-4xl font-semibold">Fantastic</h3>
-                        <p class="w-full sm:w-4/5 text-lg">
-                            Itaque cupiditate soluta necessitatibus. Quis ut veritatis sed exercitationem autem est. Pariatur dolorum officiis fuga officia labore libero. Magni tenetur delectus. Et consequatur accusantium quisquam reiciendis aut.
-                        </p>
-                        <button class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-2.5 px-5 rounded-lg text-white font-semibold flex space-x-2.5">
-                            <span>Get Started</span>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                  </svg>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0 lg:space-x-10">
-                <div class="w-full lg:w-1/2">
-                    <img class="w-full h-4/5 rounded-md" src="/images/illustrate-job.jpg" alt="">
-                </div>
-                <div class="w-full lg:w-1/2">
-                    <div class="space-y-5 sm:space-y-6">
-                        <h3 class="text-3xl md:text-4xl font-semibold">Become a content creator</h3>
-                        <p class="w-full sm:w-4/5 text-lg">
-                            Neque aperiam labore reiciendis fugit error mollitia. Repellat non voluptatem expedita quos quia. Quae architecto quia perferendis dicta facilis. Impedit aut sit. Voluptatem praesentium rem officiis.
-                        </p>
-                        <button class="bg-blue-600 hover:bg-blue-700 transition-colors duration-300 py-2.5 px-5 rounded-lg text-white font-semibold flex space-x-2.5">
-                            <span>Get Started</span>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                  </svg>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Points -->
+        </div>
+
+        <div class="flex items-center justify-center w-full h-96 md:w-1/2 ">
+            <img class="object-cover w-full h-full max-w-2xl rounded-md " src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" alt="apple watch photo">
+        </div>
+    </div>
+</header>
 
         <section class="bg-gray-100"><!-- Start Features -->
             <div class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28">
@@ -158,32 +111,4 @@
                 </div>
             </div>
         </section><!-- End Features -->
-
-        <footer class="container mx-auto px-4 mt-6 py-6">
-            <hr class="mb-6">
-            <div class="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 mb-6">
-                <div class="flex-1">
-                    <span class="text-blue-500 text-2xl font-mono font-semibold">CodeInit.Inc</span>
-                </div>
-                <div class="flex md:justify-center flex-1 space-x-6 font-medium">
-                    <a href="#0" class="hover:text-blue-700 transition-colors duration-200">Features</a>
-                    <a href="/posts" class="hover:text-blue-700 transition-colors duration-200">Blogs</a>
-                    <a href="#0" class="hover:text-blue-700 transition-colors duration-200">About</a>
-                    <a href="#0" class="hover:text-blue-700 transition-colors duration-200">Contacts</a>
-                </div>
-                <div class="flex md:justify-end flex-1 space-x-4">
-                    <a href="">
-                        <i class="text-2xl transition duration-500 ease-in-out transform hover:scale-125 bx bxl-facebook-circle"></i>
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCwk7eIb_6omKANWoedv5Hfw">
-                        <i class="text-2xl transition duration-500 ease-in-out transform hover:scale-125 bx bxl-youtube"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row md:justify-center space-y-2 md:space-y-0 md:space-x-3 text-gray-500 text-xs">
-                <p>Copyright © 2021 CodeInit. All rights reserved.</p>
-            </div>
-        </footer>
-    </main>
-
 </x-layout>
