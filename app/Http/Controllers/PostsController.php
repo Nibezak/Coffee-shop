@@ -23,7 +23,7 @@ class PostsController extends Controller
     if(request('search')){return $this->getPosts();}
 
     return view('posts',[
-    'posts' => $posts->simplePaginate(4),
+    'posts' => $posts->simplePaginate(8),
     ]);
 
     }

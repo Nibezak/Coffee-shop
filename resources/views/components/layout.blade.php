@@ -10,7 +10,7 @@
     <script src="/js/progress-bar.js"></script>
 
     </head>
-    <body>
+    <body >
     <!-- component -->
     <div class="overflow-x-hidden  bg-gray-100">
 <!-- component -->

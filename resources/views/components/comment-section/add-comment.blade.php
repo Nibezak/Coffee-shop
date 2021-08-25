@@ -13,7 +13,7 @@
              border border-gray-400 leading-normal
              resize-none w-full h-20 py-2 px-3
              font-medium placeholder-gray-700 focus:outline-none focus:bg-white
-             @error('body') border border-2 border-red-500  @enderror" name="body" placeholder='Type a Comment' required></textarea>
+             @error('body') border border-4 border-red-500  @enderror" name="body" placeholder='Type a Comment' required></textarea>
          </div>
          <div class="w-full md:w-full inline-flex items-start md:w-full px-3">
 

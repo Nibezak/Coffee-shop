@@ -64,15 +64,15 @@
 
     </div>
     <div>
-    <a href="/authors/{{$post->author->username}}" class="flex items-center">
+    <a href="/authors/{{$post->author->username}}" class="inline-flex justify-between items-center">
 
-    <p class="font-semibold text-base">
-    post by <span class="font-bold">
+    <p class="font-semibold text-base px-4">
+     <span class="font-bold">
     {{$post->author->username}}
     </span>
     </p>
 
-    <img src="https://i.pravatar.cc/u?={{$post->author->username}}" width="30" height="30" class="rounded-full">
+    <img src="https://i.pravatar.cc/110" width="30" height="30" class="rounded-full">
 
     </a>
 

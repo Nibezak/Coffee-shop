@@ -23,7 +23,7 @@ class PostCommentsController extends Controller
             ]);
             //redirect back
             //
-            return back();
+            return back()->with('success', 'Comment added');
 
          }
 }

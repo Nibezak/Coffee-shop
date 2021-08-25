@@ -16,7 +16,7 @@ class SessionsController extends Controller
       {
         // validate the credentials
        $attributes = request()->validate([
-            'email' => 'required|exists:users,email',
+            'email' => 'required|email|exists:users,email',
             'password' => 'required'
         ]);
         //attempt to login the user based on the credintials

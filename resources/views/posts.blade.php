@@ -46,11 +46,7 @@
 
     <div class="px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
 
-    <h1 class="mb-4 text-xl font-bold text-gray-700">Notice Board</h1>
-    <div>
     <x-notice-board />
-
-    </div>
     </div>
 
     </div>
