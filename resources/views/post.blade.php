@@ -91,9 +91,9 @@
     </div>
 
 
-    <h1 class="mb-4 text-xl font-bold text-gray-700">Notice Board</h1>
+
+    {{-- <x-notice-board /> --}}
     <div>
-    <x-notice-board />
     <!-- component -->
     <section>
         <x-comment-section.add-comment :post="$post"/>
@@ -111,11 +111,11 @@
     <section class="block lg:hidden md:hidden">
         <div class="py-6 px-4 ml-2">
 
-        <x-comment-section.add-comment :post="$post"/>
+        <x-comment-section.add-comment class="px-6" :post="$post"/>
         </div>
 
 @foreach($post->comments as $comment)
-<x-comment-section.comment-block :comment="$comment" />
+<x-comment-section.comment-block class="px-10" :comment="$comment" />
 @endforeach
 </section>
 

@@ -23,7 +23,7 @@ class SessionsController extends Controller
        if(Auth::attempt($attributes)){
         //session fixation
         session()->regenerate();
-        return redirect('/posts')->with('success', 'Welcome back ');
+        return back()->with('success', 'Welcome back ');
        }
        throw validationException::withMessages(
         ['email' => "Your provide credentials Could not be Verified"]);
@@ -33,6 +33,6 @@ class SessionsController extends Controller
      {
         Auth::logout();
 
-        return redirect('/')->with('success','Account Logged out');
+        return back()->with('success','Account Logged out');
      }
 }

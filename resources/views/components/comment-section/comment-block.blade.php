@@ -1,5 +1,5 @@
 @props(['comment'])
-<div class="shadow-lg rounded-lg bg-white mx-auto m-8 p-4 notification-box flex">
+<div {{$attributes(["class"=>"shadow-lg rounded-lg bg-white mx-auto m-8 p-4 notification-box flex"])}}>
         <div class="pr-2">
         <img src="https://i.pravatar.cc/?u={{$comment->author->username}}"  class="rounded-full border  border-8 border-gray-200"
         style="max-width: 30px;

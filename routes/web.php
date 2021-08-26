@@ -10,7 +10,7 @@
     use App\Http\Controllers\PostTagsController;
     use App\Http\Controllers\AuthorsController;
     use App\Http\Controllers\PostCommentsController;
-    use \MailchimpMarketing\ApiClient;
+    use App\Http\Controllers\NewsletterController;
 
 
 
@@ -48,23 +48,4 @@
 
     // Subscribe for NewsLetters
 
-    Route::post("newsletter/subscribe", function(){
-        request()->validate(['email' => 'required|email',]);
-    $mailchimp = new ApiClient();
-
-    $mailchimp->setConfig([
-    'apiKey' => config('services.mailchimp.key'),
-    'server' => 'us5'
-    ]);
-    try{
-    $response = $mailchimp->lists->addListMember("c0a16e31b5", [
-    "email_address" => request('email'),
-    "status" => "subscribed",
-]);
- }catch (\Exception $e){
-    \Illuminate\Validation\validationException::withMessages([
-        'email' => 'This Email could not be added.'
-    ]);
- }
-    return back()->with('success','Successfully signed up');
-    });
+    Route::post("newsletter/subscribe", NewsletterController::class);

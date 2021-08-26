@@ -12,7 +12,7 @@
 
                 <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">features</a>
 
-                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">About us </a>
+                <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">About </a>
 
                 <a href="{{route('all-posts')}}" class="font-semibold border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">blog</a>
                 @guest
@@ -43,6 +43,9 @@
                     <div class="mb-6 in">
                         <label for="email" class="block font-semibold mb-2 text-md text-gray-600 dark:text-gray-400">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="you@company.com" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500 @error('email') border border-8 border-red-600 border-opacity-100  @enderror" />
+                        @error('email')
+                       <span class="text-red-600 text-sm font-semibold px-3 py-2"> {{$message}}</span>
+                        @enderror
                     </div>
 
                     <button class="block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md md:inline hover:bg-blue-400">Sign up for NewsLetter</button>

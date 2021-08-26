@@ -1,6 +1,6 @@
 @auth
 @props(['post'])
-<div class="flex mx-auto items-center justify-center shadow-lg  mx-8 mb-4 max-w-lg">
+<div {{$attributes->merge(["class"=>"flex mx-auto items-center justify-center shadow-lg  mx-8 mb-4 max-w-lg"])}}>
    <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2" method="POST" action="/post/{{$post->slug}}/comments">
       @csrf
       <div class="flex flex-wrap -mx-3 mb-6">
@@ -24,7 +24,7 @@
       </form>
    </div>
    @else
-   <p class="text-sm ">
+   <p class="text-sm  ">
    <a href="{{ route('login') }}" class="text-blue-500">Login</a> or <a href="{{route('register') }}" class="text-blue-500">create an account</a> , to add a comment
 </p>
 @endauth
