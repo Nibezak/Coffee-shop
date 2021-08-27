@@ -16,7 +16,7 @@ class PostTagsController extends Controller
     public function show(Tag $tag)
     {
 
-    return view('post-tags', [
+    return view('posts.post-tags', [
     'posts' => $tag->posts
     ]);
     }

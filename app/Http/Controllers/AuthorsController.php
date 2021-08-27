@@ -16,7 +16,7 @@ class AuthorsController extends Controller
     public function show(User $author)
     {
     $author = $author->posts;
-    return view('authors',[
+    return view('authors.authorPosts',[
     'posts' => $author,
     'tags' => Tag::all(),
 

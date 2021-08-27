@@ -11,6 +11,8 @@
     use App\Http\Controllers\AuthorsController;
     use App\Http\Controllers\PostCommentsController;
     use App\Http\Controllers\NewsletterController;
+    use App\Http\Controllers\UsersController;
+
 
 
 
@@ -35,6 +37,15 @@
     Route::get('tags/{tag:slug}', [PostTagsController::class, 'show'])->name('show-tagPosts');
     Route::get('authors/{author:username}',[AuthorsController::class , 'show'])->name('show-authorPosts');
 
+
+    //Posting a comment
+    Route::post('post/{post:slug}/comments', [PostCommentsController::class, 'store']);
+
+    // Subscribe for NewsLetters
+
+    Route::post("newsletter/subscribe", NewsletterController::class);
+
+
     // RegisterController
     Route::get('register',[RegisterController::class, 'create'])->middleware('guest')->name('register');
     Route::post('register',[RegisterController::class, 'store'])->middleware('guest');
@@ -43,9 +54,4 @@
     Route::post('login', [SessionsController::class, 'store']);
     Route::post('logout', [ SessionsController::class, 'destroy'])->middleware('auth'); // logout
 
-    //Posting a comment
-    Route::post('post/{post:slug}/comments', [PostCommentsController::class, 'store']);
-
-    // Subscribe for NewsLetters
-
-    Route::post("newsletter/subscribe", NewsletterController::class);
+    Route::get("account/profile", [UsersController::class, 'profile'])->middleware('auth');

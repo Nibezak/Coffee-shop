@@ -22,7 +22,7 @@ class PostsController extends Controller
 
     if(request('search')){return $this->getPosts();}
 
-    return view('posts',[
+    return view('posts.index',[
     'posts' => $posts->simplePaginate(8),
     ]);
 
@@ -60,7 +60,7 @@ class PostsController extends Controller
         $read_time =  $readTime = (new ReadTime([$post]))->get();
 
 
-        return view('post', [
+        return view('posts.show', [
          'post' => $post,
          'read_time' =>$read_time
 

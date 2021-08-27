@@ -15,11 +15,14 @@
                 <a href="#" class="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">About </a>
 
                 <a href="{{route('all-posts')}}" class="font-semibold border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">blog</a>
+                @auth
+                <x-account-button/>
+                @endauth
                 @guest
                 <a href="{{route('login')}}" class="text-lg border-b-2 border-transparent  text-blue-500 hover:border-blue-500 mx-1.5 sm:mx-6">login</a>
 
                <a href="{{route('register')}}" class="text-lg border-b-2 border-transparent  text-blue-500 hover:border-blue-500 mx-1.5 sm:mx-6">register</a>
-@endguest
+                @endguest
             </div>
         </div>
     </nav>

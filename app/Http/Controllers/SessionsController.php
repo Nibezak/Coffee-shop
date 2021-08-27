@@ -12,6 +12,9 @@ class SessionsController extends Controller
      {
            return view('auth.sessions.create');
      }
+
+
+
       public function store()
       {
         // validate the credentials
