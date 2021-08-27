@@ -26,12 +26,13 @@ class SessionsController extends Controller
        if(Auth::attempt($attributes)){
         //session fixation
         session()->regenerate();
-        return back()->with('success', 'Welcome back ');
+        return back()->with('success','Welcome Back!');
        }
+
        throw validationException::withMessages(
         ['email' => "Your provide credentials Could not be Verified"]);
-
       }
+
      public function destroy()
      {
         Auth::logout();
