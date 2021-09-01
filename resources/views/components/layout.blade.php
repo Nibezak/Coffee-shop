@@ -8,6 +8,10 @@
     <link rel="stylesheet" type="text/css" href="/css/editor.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.2.2/cdn.js" defer></script>
     <script src="/js/progress-bar.js"></script>
+    <script src="/js/app.js"></script>
+
+
+
 <style type="text/css">
     /* width */
 ::-webkit-scrollbar {
@@ -37,7 +41,9 @@
     {{$slot}}
     </div>
 <x-flash-message />
+<x-ckeditor/>
     </body>
     </html>
+
 
 

@@ -56,9 +56,7 @@
     <!-- component -->
     <!-- This is an example component -->
     <div class="flex justify-center items-center">
-    @foreach(range(1,5) as $star)
     <x-star-rating />
-    @endforeach
 
     </div>
     <div>

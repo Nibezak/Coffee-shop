@@ -1,4 +1,4 @@
-    <x-layout>
+ <x-layout>
 
     <x-navbar/>
     <div class="px-2 lg:px-24 py-8">
@@ -58,9 +58,9 @@
     <!-- component -->
     <!-- This is an example component -->
     <div class="flex justify-center items-center">
-    @foreach(range(1,5) as $star)
+
     <x-star-rating />
-    @endforeach
+
 
     </div>
     <div>
@@ -72,7 +72,7 @@
     </span>
     </p>
 
-    <img src="https://i.pravatar.cc/110" width="30" height="30" class="rounded-full">
+    <img src="https://i.pravatar.cc/500?u={{$post->author->username}}" alt="" width="30" height="30" class="rounded-full">
 
     </a>
 

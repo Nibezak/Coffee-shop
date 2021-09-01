@@ -9,6 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
+
     protected $guarded=['id','created_at','updated_at'];
     protected $with = ['tags', 'author'];
 
@@ -28,7 +29,7 @@ class Post extends Model
       }
         public function getPostgridCardTagsAttribute(){
 
-        return $this->tags->take(3);
+        return $this->tags->take(1);
 
         }
 

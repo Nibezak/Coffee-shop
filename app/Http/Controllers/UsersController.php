@@ -9,11 +9,10 @@ use Illuminate\Support\Str;
 class UsersController extends Controller
 {
 
-         public function profile(User $author)
+         public function profile()
      {
-        $posts = Post::latest()->get();
-        return view('users.account.profile',[
-            'posts' => $author->posts
-        ]);
+        $this->authorize('staff-only');
+         $author = auth()->user();
+        return view('users.account.profile',compact('author'));
      }
 }

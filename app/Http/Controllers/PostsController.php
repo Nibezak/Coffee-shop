@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
-
+use App\Models\Review;
+use Illuminate\Validation\Rule;
 use Mtownsend\ReadTime\ReadTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
@@ -35,7 +37,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+            $this->authorize('posts-create');
+        return view('posts.create');
     }
 
     /**
@@ -44,9 +47,20 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Post $post, Request $request)
     {
-        //
+
+        // Start by uploading a file to the server
+        // and getting its path for the database
+
+
+        $attributes = new Post($this->validateAttributes());
+        $attributes['user_id'] = auth()->user()->id;
+        $attributes['slug'] = Str::slug(request('title'));
+        $attributes->save();
+        $attributes->tags()->attach(request('tag_id'));
+
+          return redirect('/account/profile')->with('success', 'Post has been Published');
     }
 
     /**
@@ -58,8 +72,6 @@ class PostsController extends Controller
     public function show(post $post)
     {
         $read_time =  $readTime = (new ReadTime([$post]))->get();
-
-
         return view('posts.show', [
          'post' => $post,
          'read_time' =>$read_time
@@ -73,9 +85,10 @@ class PostsController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(post $post)
+    public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -87,7 +100,14 @@ class PostsController extends Controller
      */
     public function update(Request $request, post $post)
     {
-        //
+        $attributes = $this->validateAttributes();
+        $attributes['slug'] = Str::slug(request('title'));
+        if(isset($attributes['photo'])){
+        $attributes['photo'] = request()->file('photo');
+        }
+        $post->update($attributes);
+
+          return redirect('/account/profile')->with('success', 'Post Updated');
     }
 
     /**
@@ -96,10 +116,21 @@ class PostsController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(post $post)
+    public function destroy($id)
     {
-        //
+       $post = Post::findOrFail($id);
+       $post->delete();
+        return back()->with('success', 'Deleted');
     }
+
+     public function review()
+     {
+
+      $rating = request('rating');
+      dd($rating);
+          return back()->with('success', 'Thank you for the review');
+     }
+
      protected function getPosts()
      {
     $posts = Post::latest();
@@ -117,4 +148,22 @@ class PostsController extends Controller
 
      }
 
+     protected function validateAttributes()
+     {
+        return  request()->validate([
+                'photo' => 'image|mimes:jpg,png,jpeg,svg,gif|max:5048',
+                'title' => 'required',
+                'verse' => 'required|max:228',
+                'body' => 'required',
+                'tag_id' => ['required',Rule::exists('tags', 'id')]
+           ]);
+     }
 }
+
+
+
+        // $photoName  = $request->file('photo')->getClientOriginalName();
+
+        // $path = $request->file('photo')->move(public_path('photos'), $photoName);
+
+        // $attributes['photo'] = 'photos/'. $photoName;

@@ -1,3 +1,17 @@
-<div class="flex items-center mt-2 mb-4">
-<svg class="mx-1 w-4 h-4 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-</div>
+<x-appCss />
+<form method="POST" action="/post/review">
+    @csrf
+<fieldset class="rating w-full bg-transparent">
+    <input type="radio" id="star5" name="rating" value="{{5}}" onChange="this.form.submit()"/><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+    <input type="radio" id="star4half" name="rating" value="{{4.5}}" onChange="this.form.submit()"/><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+    <input type="radio" id="star4" name="rating" value="{{4}}" onChange="this.form.submit()"/><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+    <input type="radio" id="star3half" name="rating" value="{{3.5}}" onChange="this.form.submit()"/><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+    <input type="radio" id="star3" name="rating" value="{{3}}" onChange="this.form.submit()"/><label class = "full" for="star3" title="Meh - 3 stars"></label>
+    <input type="radio" id="star2half" name="rating" value="{{2.5}}" onChange="this.form.submit()"/><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+    <input type="radio" id="star2" name="rating" value="{{2}}" onChange="this.form.submit()"/><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+    <input type="radio" id="star1half" name="rating" value="{{1.5}}" onChange="this.form.submit()"/><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+    <input type="radio" id="star1" name="rating" value="{{1}}" onChange="this.form.submit()"/><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+    <input type="radio" id="starhalf" name="rating" value="{{0.5}}" onChange="this.form.submit()"/><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+
+</fieldset>
+</form>

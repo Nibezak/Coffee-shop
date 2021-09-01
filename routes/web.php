@@ -35,16 +35,7 @@
     Route::get('posts', [PostsController::class, 'index'])->name('all-posts');
     Route::get('posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');
     Route::get('tags/{tag:slug}', [PostTagsController::class, 'show'])->name('show-tagPosts');
-    Route::get('authors/{author:username}',[AuthorsController::class , 'show'])->name('show-authorPosts');
-
-
     //Posting a comment
-    Route::post('post/{post:slug}/comments', [PostCommentsController::class, 'store']);
-
-    // Subscribe for NewsLetters
-
-    Route::post("newsletter/subscribe", NewsletterController::class);
-
 
     // RegisterController
     Route::get('register',[RegisterController::class, 'create'])->middleware('guest')->name('register');
@@ -52,6 +43,27 @@
     // sessionscontroller has the login and logout functinality and other sessions
     Route::get('login', [ SessionsController::class, 'create'])->middleware('guest')->name('login');  //login
     Route::post('login', [SessionsController::class, 'store']);
-    Route::post('logout', [ SessionsController::class, 'destroy'])->middleware('auth'); // logout
 
-    Route::get("account/profile", [UsersController::class, 'profile'])->middleware('auth');
+Route::group(['middleware' => 'auth'] , function()
+{
+    route::group(['middleware' => 'is_admin'], function()
+    {
+    Route::get('account/{author:username}', [UsersController::class, 'profile']);
+    Route::get('account/{author:username}/create/post', [PostsController::class, 'create']);
+    Route::post("posts/create", [PostsController::class, 'store']);
+    Route::get("posts/{id}/edit", [PostsController::class, 'edit']);
+    Route::put("posts/{id}/edit", [PostsController::class, 'update']);
+    Route::post("posts/{id}/delete", [PostsController::class, 'destroy']);
+    });
+    Route::post("post/review", [PostsController::class, 'review']);
+    Route::post("tags/create", [PostTagsController::class, 'store']);
+    Route::post('post/{post:slug}/comments', [PostCommentsController::class, 'store']);
+    Route::post('logout', [ SessionsController::class, 'destroy']); // logout
+});
+
+
+
+
+    Route::get('authors/{author:username}',[AuthorsController::class , 'show'])->name('show-authorPosts');
+    //subscribe for newsletter
+    Route::post("newsletter/subscribe", NewsletterController::class);
