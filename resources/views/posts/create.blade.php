@@ -28,7 +28,7 @@
 <div class="py-3">
  <x-inputs.image-uploader/>
 @error('photo')
-{{$message}}
+<span class="text-red-500 text-sm"> {{$message}} </span>
 @enderror
 </div>
 

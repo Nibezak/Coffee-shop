@@ -21,9 +21,7 @@ class PostsController extends Controller
     public function index()
     {
     $posts = Post::latest();
-
     if(request('search')){return $this->getPosts();}
-
     return view('posts.index',[
     'posts' => $posts->simplePaginate(8),
     ]);
@@ -52,11 +50,11 @@ class PostsController extends Controller
 
         // Start by uploading a file to the server
         // and getting its path for the database
-
-
         $attributes = new Post($this->validateAttributes());
         $attributes['user_id'] = auth()->user()->id;
         $attributes['slug'] = Str::slug(request('title'));
+        // $attributes['photo'] = request('photo')->storeAs('photos', request('photo')->getClientOriginalName(), 'publicPhotos');
+        $attributes['photo'] = request('photo')->store('photos','public');
         $attributes->save();
         $attributes->tags()->attach(request('tag_id'));
 
@@ -100,14 +98,14 @@ class PostsController extends Controller
      */
     public function update(Request $request, post $post)
     {
-        $attributes = $this->validateAttributes();
-        $attributes['slug'] = Str::slug(request('title'));
-        if(isset($attributes['photo'])){
-        $attributes['photo'] = request()->file('photo');
-        }
-        $post->update($attributes);
+        // $attributes = $this->validateAttributes();
+        // $attributes['slug'] = Str::slug(request('title'));
+        // if(isset($attributes['photo'])){
+        // $attributes['photo'] = request()->file('photo');
+        // }
+        // $post->update($attributes);
 
-          return redirect('/account/profile')->with('success', 'Post Updated');
+        //   return redirect('/account/profile')->with('success', 'Post Updated');
     }
 
     /**
@@ -151,9 +149,9 @@ class PostsController extends Controller
      protected function validateAttributes()
      {
         return  request()->validate([
-                'photo' => 'image|mimes:jpg,png,jpeg,svg,gif|max:5048',
+                'photo' => 'required|image|mimes:jpg,png,jpeg,svg,gif|max:5048',
                 'title' => 'required',
-                'verse' => 'required|max:228',
+                'verse' => 'required|max:315|min:100',
                 'body' => 'required',
                 'tag_id' => ['required',Rule::exists('tags', 'id')]
            ]);
@@ -162,8 +160,6 @@ class PostsController extends Controller
 
 
 
-        // $photoName  = $request->file('photo')->getClientOriginalName();
-
-        // $path = $request->file('photo')->move(public_path('photos'), $photoName);
-
-        // $attributes['photo'] = 'photos/'. $photoName;
+//  $photoName  = $request->file('photo')->getClientOriginalName();
+// $path = $request->file('photo')->move(public_path('photos'), $photoName);
+//  $attributes['photo'] = 'photos/'. $photoName;

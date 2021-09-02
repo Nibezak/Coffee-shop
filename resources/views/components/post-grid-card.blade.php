@@ -1,13 +1,16 @@
 @props(['post'])
-<div
-{{$attributes->merge(["class"=>"mt-6 max-w-4xl mx-auto rounded-lg shadow-md"])}}>
+<div {{$attributes->merge(["class"=>"mt-6 max-w-4xl mx-auto rounded-lg shadow-md"])}}>
 
 
+
+<div class=" px-10  bg-white rounded-md">
+       @if(isset($post->photo))
     <div class="mb-6">
-    <img src="https://media.gcflearnfree.org/content/55e0730c7dd48174331f5164_01_17_2014/whatisacomputer_desktop_computers.jpg">
+<a href="/posts/{{$post->slug}}">
+    <img src="{{ asset("storage/". $post->photo) }}">
+</a>
     </div>
-<div class=" px-10 bg-white">
-
+    @endif
 <div class="flex bg-white items-center py-2 justify-between ">
     <span class="font-semibold text-gray-600">
 {!! $post->created_at->diffForHumans() !!}

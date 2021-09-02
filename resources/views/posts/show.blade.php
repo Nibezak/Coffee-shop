@@ -1,7 +1,7 @@
  <x-layout>
 
     <x-navbar/>
-    <div class="px-2 lg:px-24 py-8">
+    <div class="px-2 lg:px-12 py-8">
 
 
 
