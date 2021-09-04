@@ -11,8 +11,10 @@
     use App\Http\Controllers\AuthorsController;
     use App\Http\Controllers\PostCommentsController;
     use App\Http\Controllers\NewsletterController;
+    use App\Http\Controllers\AdminUsersController;
+    use App\Http\Controllers\AdminPostsController;
+    use App\Http\Controllers\AdminSettingsController;
     use App\Http\Controllers\UsersController;
-
 
 
 
@@ -35,6 +37,9 @@
     Route::get('posts', [PostsController::class, 'index'])->name('all-posts');
     Route::get('posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');
     Route::get('tags/{tag:slug}', [PostTagsController::class, 'show'])->name('show-tagPosts');
+    Route::get('authors/{author:username}',[AuthorsController::class , 'show'])->name('show-authorPosts');
+    //subscribe for newsletter
+    Route::post("newsletter/subscribe", NewsletterController::class);
     //Posting a comment
 
     // RegisterController
@@ -48,13 +53,20 @@ Route::group(['middleware' => 'auth'] , function()
 {
     route::group(['middleware' => 'is_admin'], function()
     {
-    Route::get('account/{author:username}', [UsersController::class, 'profile']);
-    Route::get('account/{author:username}/create/post', [PostsController::class, 'create']);
-    Route::post("posts/create", [PostsController::class, 'store']);
-    Route::get("posts/{id}/edit", [PostsController::class, 'edit']);
-    Route::put("posts/{id}/edit", [PostsController::class, 'update']);
-    Route::post("posts/{id}/delete", [PostsController::class, 'destroy']);
+        // all routes relating to user that admin can see
+    Route::get('accounts/{author:username}', [AdminUsersController::class, 'dashboard'])->name('admin-dashboard');
+    Route::delete('accounts/admins/{author:username}', [AdminUsersController::class, 'destroy'])->name('delete-author');
+    Route::get('accounts/admins/settings', [AdminSettingsController::class, 'index'])->name('settings');
+    Route::get('accounts/users/access/{author:username}', [UsersController::class, 'userAccess'])->name('user-access');
+    // all routes relating to post that Admin can see
+    Route::get('admins/posts/author-posts', [AdminPostsController::class, 'authorPosts'])->name('author-posts');
+    Route::get('admins/posts/create', [AdminPostsController::class, 'create'])->name('create-post');
+    Route::post("admins/posts/create", [AdminPostsController::class, 'store']);
+    Route::get("admins/posts/{post}/edit", [AdminPostsController::class, 'edit'])->name('edit-post');
+    Route::patch("admins/posts/{post}", [AdminPostsController::class, 'update']);
+    Route::delete("admins/posts/{post}", [AdminPostsController::class, 'destroy']);
     });
+
     Route::post("post/review", [PostsController::class, 'review']);
     Route::post("tags/create", [PostTagsController::class, 'store']);
     Route::post('post/{post:slug}/comments', [PostCommentsController::class, 'store']);
@@ -63,7 +75,3 @@ Route::group(['middleware' => 'auth'] , function()
 
 
 
-
-    Route::get('authors/{author:username}',[AuthorsController::class , 'show'])->name('show-authorPosts');
-    //subscribe for newsletter
-    Route::post("newsletter/subscribe", NewsletterController::class);

@@ -44,7 +44,10 @@
           </div>
 
         </div>
-        <div class="flex items-start pb-2 cursor-pointer md:hidden">
-          <svg class="w-5 h-5 text-gray-700 fill-current" fill="currentColor" viewBox="0 0 20 20"><path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"></path></svg>
-        </div>
+
+          <div class="flex items-center hidden px-4 pb-2 text-sm border-b-2 border-transparent cursor-pointer hover:border-gray-300 lg:flex lg:block">
+<a href="/Dashboard">
+        Dashboard
+       </a>
+          </div>
       </div>

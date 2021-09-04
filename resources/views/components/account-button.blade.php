@@ -26,11 +26,14 @@
                   </div>
                   @can('staff-only')
                   <ul class="flex flex-col p-2 my-2 space-y-1">
-                    <li>
-                      <a href="/account/{{auth()->user()->username}}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Profile</a>
+                          <li>
+                      <a href="{{ route('all-posts') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Blogs</a>
                     </li>
                     <li>
-                      <a href="#" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Settings</a>
+                      <a href="/accounts/{{auth()->user()->username}}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Admin Panel</a>
+                    </li>
+                    <li>
+                      <a href="{{ route('settings') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Settings</a>
                     </li>
                   </ul>
                   @endcan

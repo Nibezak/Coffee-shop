@@ -33,33 +33,7 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-            $this->authorize('posts-create');
-        return view('posts.create');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Post $post, Request $request)
-    {
-
-        // Start by uploading a file to the server
-        // and getting its path for the database
-        $attributes = new Post($this->validateAttributes());
-        $attributes['user_id'] = auth()->user()->id;
-        $attributes['slug'] = Str::slug(request('title'));
-        // $attributes['photo'] = request('photo')->storeAs('photos', request('photo')->getClientOriginalName(), 'publicPhotos');
-        $attributes['photo'] = request('photo')->store('photos','public');
-        $attributes->save();
-        $attributes->tags()->attach(request('tag_id'));
-
-          return redirect('/account/profile')->with('success', 'Post has been Published');
-    }
 
     /**
      * Display the specified resource.
@@ -83,9 +57,9 @@ class PostsController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
+
         return view('posts.edit', compact('post'));
     }
 
@@ -98,14 +72,21 @@ class PostsController extends Controller
      */
     public function update(Request $request, post $post)
     {
-        // $attributes = $this->validateAttributes();
-        // $attributes['slug'] = Str::slug(request('title'));
-        // if(isset($attributes['photo'])){
-        // $attributes['photo'] = request()->file('photo');
-        // }
-        // $post->update($attributes);
+        $attributes = request()->validate([
+                'photo' => 'image|mimes:jpg,png,jpeg,svg,gif|max:5048',
+                'title' => 'required|max:100',
+                'slug' => [Rule::unique('posts','slug')->ignore($post->id)],
+                'verse' => 'required|max:315|min:100',
+                'body' => 'required',
+                'tag_id' => [Rule::exists('tags', 'id')]
+           ]);
+        $attributes['slug'] = Str::slug(request('title'));
+        if(isset($attributes['photo'])){
+        $attributes['photo'] = request()->file('photo')->store('photos','public');
+        }
+        $post->update($attributes);
 
-        //   return redirect('/account/profile')->with('success', 'Post Updated');
+          return redirect('/account/profile')->with('success', 'Post Updated');
     }
 
     /**
@@ -146,16 +127,6 @@ class PostsController extends Controller
 
      }
 
-     protected function validateAttributes()
-     {
-        return  request()->validate([
-                'photo' => 'required|image|mimes:jpg,png,jpeg,svg,gif|max:5048',
-                'title' => 'required',
-                'verse' => 'required|max:315|min:100',
-                'body' => 'required',
-                'tag_id' => ['required',Rule::exists('tags', 'id')]
-           ]);
-     }
 }
 
 

@@ -3,15 +3,16 @@
 
 
 
-<div class=" px-10  bg-white rounded-md">
+<div class=" bg-white rounded-md">
        @if(isset($post->photo))
-    <div class="mb-6">
+    <div class="mb-6 flex justify-center">
 <a href="/posts/{{$post->slug}}">
-    <img src="{{ asset("storage/". $post->photo) }}">
+    <img src="{{ asset("storage/". $post->photo) }}" class="w-full h-full">
 </a>
     </div>
     @endif
-<div class="flex bg-white items-center py-2 justify-between ">
+    <div class="px-10">
+<div class=" px-3 flex bg-white items-center py-2 justify-between ">
     <span class="font-semibold text-gray-600">
 {!! $post->created_at->diffForHumans() !!}
 </span>
@@ -27,9 +28,9 @@
 class="text-2xl font-bold text-gray-700 hover:underline">
 {!! $post->title !!}
 </a>
-<p class="mt-2 text-gray-600">
+<a class="mt-2 text-gray-600 block" href="/posts/{{$post->slug}}">
 {!! $post->verse !!}
-</p>
+</a>
 
 <div class="flex items-center justify-between mt-4 pb-6">
     <div class="inline-flex">
@@ -53,7 +54,7 @@ alt="avatar" class="hidden object-cover  mx-4 rounded-full sm:block" width="30" 
 </a>
 </div>
 </div>
-
+</div>
 </div>
 
 

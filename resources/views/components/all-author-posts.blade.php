@@ -39,7 +39,6 @@
                    <button class=" ml-2 text-right  font-semibold bg-red-600 px-3 py-1 rounded-md text-white" type="submit">Delete</button>
                     </form>
                       <form method="GET" action="/posts/{{$post->id}}/edit">
-                      @csrf
                    <button class=" ml-2 text-right  font-semibold bg-green-600 px-3 py-1 rounded-md text-white" type="submit">Edit</button>
                     </form>
                   </div>

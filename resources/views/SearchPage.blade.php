@@ -44,7 +44,7 @@
     </div>
     </div>
     @else
-    <x-404-page />
+   {{abort(404)}}
     @endif
 
     </x-layout>

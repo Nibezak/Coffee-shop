@@ -28,7 +28,6 @@ class SessionsController extends Controller
         session()->regenerate();
         return back()->with('success','Welcome Back!');
        }
-
        throw validationException::withMessages(
         ['email' => "Your provide credentials Could not be Verified"]);
       }

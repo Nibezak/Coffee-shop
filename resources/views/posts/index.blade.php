@@ -2,7 +2,7 @@
     <x-layout>
     {{-- the navbar contains the project's logo and the subscription link --}}
 @empty($posts)
-<x-404-page/>
+{{ abort(404)}}
 @endempty
     <x-navbar/>
 

@@ -23,11 +23,11 @@
 
         </form> --}}
 
-        <form method="POST" action="/posts/{{$post->id}}/edit" class="py-4 mb-3" enctype="multipart/form-data">
+        <form method="POST" action="/posts/{{$post->id}}" class="py-4 mb-3" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
+            @method('PATCH')
 <div class="py-3">
-    <x-inputs.image-uploader />
+    <x-inputs.image-uploader :photo="$post"/>
 </div>
 
         <div class="justify-between px-3 mb-6">

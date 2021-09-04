@@ -40,6 +40,13 @@
     </div>
 
     <div class="mt-2">
+               @if(isset($post->photo))
+    <div class="mb-6  flex justify-center">
+<a href="/posts/{{$post->slug}}">
+    <img src="{{ asset("storage/". $post->photo) }}" class="h-52 rounded-md w-full">
+</a>
+    </div>
+    @endif
     <a href="/posts/{{$post->slug}}" class="text-2xl font-bold text-gray-700 underline">
     {{$post->title}}
     </a>
