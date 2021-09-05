@@ -1,6 +1,6 @@
 <div class="relative px-2 block" x-data="{ isOpen: false }">
                 <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
-        <img src="https://i.pravatar.cc/?u={{auth()->user()->username}}" width="30" height="30" class="rounded-full border border-8 border-gray-200">
+        <img src="/images/default-photo.svg" width="30" height="30" class="rounded-full border border-8 border-gray-200">
 
                 </button>
                 <!-- green dot -->

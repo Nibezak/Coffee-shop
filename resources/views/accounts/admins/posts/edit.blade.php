@@ -8,7 +8,7 @@
               @method('PATCH')
               @csrf
             <div class="flex justify-center">
-              <x-inputs.image-uploader  value="{{ asset('storage/' . $post->photo)}}"/>
+              <x-inputs.image-uploader name="photo" value="{{ asset('storage/' . $post->photo)}}"/>
               @error('photo')
             <span class="text-red-600">{{$message}}</span>
               @enderror

@@ -17,7 +17,6 @@
 
         public function store()
         {
-
           $attributes =  request()->validate([
                 'username' => ["required","max:30","min:3",Rule::unique('users','username')],// one way to validate the username
                 'name' =>   ['required', 'max:255', 'min:5'],

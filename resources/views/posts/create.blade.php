@@ -26,7 +26,11 @@
         <form method="POST" action="/posts/create" class="py-4 mb-3" enctype="multipart/form-data">
             @csrf
 <div class="py-3">
-    <x-inputs.image-uploader/>
+    <x-inputs.image-uploader>
+        <x-slot name="name">
+                photo
+        </x-slot>
+    </x-inputs.image-uploader>
 @error('photo')
 <span class="text-red-500 text-sm"> {{$message}} </span>
 @enderror

@@ -59,12 +59,15 @@ Route::group(['middleware' => 'auth'] , function()
     Route::get('accounts/admins/settings', [AdminSettingsController::class, 'index'])->name('settings');
     Route::get('accounts/users/access/{author:username}', [UsersController::class, 'userAccess'])->name('user-access');
     // all routes relating to post that Admin can see
-    Route::get('admins/posts/author-posts', [AdminPostsController::class, 'authorPosts'])->name('author-posts');
+    Route::get('admins/posts/author-posts', [AdminPostsController::class, 'author_posts'])->name('author-posts');
     Route::get('admins/posts/create', [AdminPostsController::class, 'create'])->name('create-post');
     Route::post("admins/posts/create", [AdminPostsController::class, 'store']);
     Route::get("admins/posts/{post}/edit", [AdminPostsController::class, 'edit'])->name('edit-post');
     Route::patch("admins/posts/{post}", [AdminPostsController::class, 'update']);
     Route::delete("admins/posts/{post}", [AdminPostsController::class, 'destroy']);
+    // Admins Updating the admin
+    Route::patch('admins/settings/{author:username}', [AdminUsersController::class, 'update']);
+    Route::patch('/admins/settings/{author:username}/password', [AdminUsersController::class , 'update_password']);
     });
 
     Route::post("post/review", [PostsController::class, 'review']);

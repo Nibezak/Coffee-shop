@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 class AdminPostsController extends Controller
 {
-    public function authorPosts(User $author)
+    public function author_posts(User $author)
     {
         $author = Auth::user()->posts()->paginate(7);
     return view('accounts/admins/posts.author-posts',[
@@ -42,9 +42,9 @@ class AdminPostsController extends Controller
         $attributes['slug'] = Str::slug(request('title'));
         // $attributes['photo'] = request('photo')->storeAs('photos', request('photo')->getClientOriginalName(), 'publicPhotos');
         if(isset($attributes['photo']))
-        {
+    {
         $attributes['photo'] = request('photo')->store('photos','public');
-        }
+    }
         $attributes->save();
         $attributes->tags()->attach(request('tag_id'));
          return redirect(route('author-posts'))->with('success', 'Post has been Published');
