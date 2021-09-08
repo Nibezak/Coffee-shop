@@ -18,13 +18,16 @@
                 </div>
               </label>
             </form>
-            <form method="POST" action="/admins/posts/create"" enctype="multipart/form-data">
+            <form method="POST" action="/admins/posts/create" enctype="multipart/form-data">
               @csrf
             <div class="flex justify-center mt-10">
               <x-inputs.image-uploader  value="{{old('photo')}}">
                 <x-slot name="name">
                   photo
                 </x-slot>
+         <x-slot name="default_image">
+        <img id="image" class="object-cover w-full h-32" src="/images/default-photo.png">
+        </x-slot>
               </x-inputs.image-uploader>
               @error('photo')
             <span class="text-red-600">{{$message}}</span>

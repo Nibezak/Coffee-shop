@@ -1,3 +1,8 @@
+    @php
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+$author = Auth::user();
+@endphp
     <!DOCTYPE html>
     <html>
     <head>

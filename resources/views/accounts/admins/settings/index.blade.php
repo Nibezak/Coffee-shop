@@ -1,3 +1,8 @@
+@php
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+$author = Auth::user();
+@endphp
 <x-admins.layouts.layouts>
 <div class="flex justify-center">
   <div class=" px-2 w-full md:w-3/5  mt-10">
@@ -10,14 +15,15 @@
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
 {{-- avatar --}}
               <div class="flex justify-center">
-
-                 <x-inputs.image-uploader>
-                  <x-slot name="name">
-                    avatar
-                  </x-slot>
-                 </x-inputs.image-uploader>
-
-              </div>
+              <x-inputs.image-uploader>
+        <x-slot name="name">
+                avatar
+        </x-slot>
+        <x-slot name="default_image">
+    <img id="image" class="object-cover w-full h-32" src="{{$author->avatar}}">
+        </x-slot>
+    </x-inputs.image-uploader>
+              </div class="block flex justify-center">
               <div>
                 @error('avatar')
                 <span class="text-red-500">{{$message}}</span>

@@ -20,6 +20,11 @@ class Post extends Model
              return $this->belongsTo(User::class, 'user_id');
      }
 
+
+    public function getPhotoAttribute($value)
+    {
+        return asset('storage/'. $value ?: "/images/default-photo.png");
+    }
      /**
       * @return collection / relationship
       */

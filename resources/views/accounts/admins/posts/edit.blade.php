@@ -7,8 +7,15 @@
             <form method="POST" action="/admins/posts/{{$post->id}}" enctype="multipart/form-data">
               @method('PATCH')
               @csrf
-            <div class="flex justify-center">
-              <x-inputs.image-uploader name="photo" value="{{ asset('storage/' . $post->photo)}}"/>
+                <div class="flex justify-center mt-10">
+              <x-inputs.image-uploader  value="{{old('photo')}}">
+                <x-slot name="name">
+                  photo
+                </x-slot>
+         <x-slot name="default_image">
+        <img id="image" class="object-cover w-full h-32" src="{{$post->photo}}">
+        </x-slot>
+              </x-inputs.image-uploader>
               @error('photo')
             <span class="text-red-600">{{$message}}</span>
               @enderror

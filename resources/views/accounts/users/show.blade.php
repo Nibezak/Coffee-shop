@@ -66,9 +66,11 @@
             <li class="pl-3 pr-4 py-3 flex items-center justify-end text-sm">
               <div class="ml-4 flex-shrink-0">
 
-                <button @click="openModal" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
-                Delete Account
-              </button>
+        <x-buttons.confirmation-button class="bg-red-600 active:bg-red-600">
+             <x-slot name="action_name">
+              Delete account
+             </x-slot>
+            </x-confirmation-button>
 
               </div>
             </li>

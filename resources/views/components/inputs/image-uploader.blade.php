@@ -1,6 +1,6 @@
      <div>
                 <div class="w-32 h-32 mb-1  rounded-lg overflow-hidden relative">
-                    <img id="image" class="object-cover w-full h-32" src="/images/default-photo.svg">
+                    {{$default_image}}
                     <div class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center" onclick="document.getElementById('fileInput').click()">
                         <span  style="background-color: rgba(255, 255, 255, 0.65)" class="hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm   rounded-lg shadow-sm">
                             <svg  class="icon icon-tabler icon-tabler-camera" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

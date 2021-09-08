@@ -40,9 +40,9 @@ class User extends Authenticatable
     ];
 
 
-    public function getAvatarAttribute($avatar)
+    public function getAvatarAttribute($value)
     {
-        return asset('storage/'. $avatar ?: '/images/default-photo');
+        return asset('storage/'. $value ?: "/images/default-avatar.svg");
     }
     public function setPasswordAttribute($password)
     {

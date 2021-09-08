@@ -20,10 +20,7 @@ class AdminUsersController extends Controller
      public function update(User $author)
      {
         $attributes = $this->validateAttributes();
-        if(isset($attributes['avatar']))
-        {
         $attributes['avatar'] = request('avatar')->store('avatars', 'public');
-        }
         $attributes['about'] = request('about');
          $author->update($attributes);
         return back()->with('success', 'Settings saved!');
@@ -44,6 +41,7 @@ class AdminUsersController extends Controller
     {
         $author = Auth::user();
        return  request()->validate([
+                'avatar' => ['image','file'],
                 'username' => ["max:30","min:3",Rule::unique('users','username')->ignore($author)],
                 'name' =>   ['max:255', 'min:5'],
                 'email' =>  ['max:255', 'email',Rule::unique('users','email')->ignore($author)],
