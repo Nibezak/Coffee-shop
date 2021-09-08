@@ -51,7 +51,7 @@
                         @enderror
                     </div>
 
-                    <button class="block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md md:inline hover:bg-blue-400">Sign up for NewsLetter</button>
+                    <button class="block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md md:inline hover:bg-blue-400" type="submit">Sign up for NewsLetter</button>
                 </form>
                 </div>
             </div>

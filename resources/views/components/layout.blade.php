@@ -40,7 +40,6 @@
     <!-- component -->
     <div class="overflow-x-hidden  bg-gray-100"  x-data="data()" >
 <!-- component -->
-
     {{$slot}}
     </div>
 <x-flash-message />

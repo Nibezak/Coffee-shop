@@ -12,7 +12,7 @@ class AdminPostsController extends Controller
 {
     public function author_posts(User $author)
     {
-        $author = Auth::user()->posts()->paginate(7);
+    $author = Auth::user()->posts()->paginate(7);
     return view('accounts/admins/posts.author-posts',[
     'posts' => $author,
     ]);
@@ -41,10 +41,7 @@ class AdminPostsController extends Controller
         $attributes['user_id'] = auth()->user()->id;
         $attributes['slug'] = Str::slug(request('title'));
         // $attributes['photo'] = request('photo')->storeAs('photos', request('photo')->getClientOriginalName(), 'publicPhotos');
-        if(isset($attributes['photo']))
-    {
-        $attributes['photo'] = request('photo')->store('photos','public');
-    }
+        if(isset($attributes['photo'])) { $attributes['photo'] = request('photo')->store('photos','public'); }
         $attributes->save();
         $attributes->tags()->attach(request('tag_id'));
          return redirect(route('author-posts'))->with('success', 'Post has been Published');
@@ -59,12 +56,9 @@ class AdminPostsController extends Controller
     {
         $attributes = $this->validateAttributes();
         $attributes['slug'] = Str::slug(request('title'));
-        if(isset($attributes['photo'])){
-        $attributes['photo'] = request()->file('photo')->store('photos','public');
-        }
+        if(isset($attributes['photo'])) { $attributes['photo'] = request()->file('photo')->store('photos','public');}
         $post->update($attributes);
-
-          return redirect(route('author-posts'))->with('success', 'Post Updated');
+        return redirect(route('author-posts'))->with('success', 'Post Updated');
     }
 
 

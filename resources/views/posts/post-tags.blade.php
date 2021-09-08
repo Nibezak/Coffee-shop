@@ -63,7 +63,7 @@
     <!-- component -->
     <!-- This is an example component -->
     <div class="flex justify-center items-center">
-    <x-star-rating />
+    <x-star-rating :post="$post" />
 
     </div>
     <div>

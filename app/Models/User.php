@@ -7,23 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Scout\Searchable;
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'username',
-        'name',
-        'email',
-        'password',
-
-    ];
-
+    protected $guarded = [];
 
 
     /**
@@ -46,17 +40,23 @@ class User extends Authenticatable
     ];
 
 
-
+    public function getAvatarAttribute($avatar)
+    {
+        return asset('storage/'. $avatar ?: '/images/default-photo');
+    }
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
      public function posts()
      {
         return $this->hasMany(Post::class)->orderBy('created_at','DESC');
      }
+
       public function comments()
       {
         return $this->hasMany(Commnet::class);
       }
+
 }

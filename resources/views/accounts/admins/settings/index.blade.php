@@ -3,7 +3,7 @@
   <div class=" px-2 w-full md:w-3/5  mt-10">
 
       <div class="mt-5 md:mt-0 md:col-span-2">
-        <form method="POST" action="/admins/settings/{{$author->username}}">
+        <form method="POST" action="/admins/settings/{{$author->username}}" enctype="multipart/form-data">
           @method('PATCH')
           @csrf
           <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -13,7 +13,7 @@
 
                  <x-inputs.image-uploader>
                   <x-slot name="name">
-                    Avatar
+                    avatar
                   </x-slot>
                  </x-inputs.image-uploader>
 
@@ -26,7 +26,7 @@
 {{-- name --}}
   <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Username</span>
-                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="usernamename" placeholder="Jane Doe" value="{{$author->username}}">
+                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:text-gray-300 dark:focus:shadow-outline-gray form-input" name="username" placeholder="Jane Doe" value="{{$author->username}}">
               </label>
   @error('username')
                 <span class="text-red-500">{{$message}}</span>
@@ -60,18 +60,21 @@
      <button @click="openModal" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" type="button">
                 Change Password
               </button>
+              @error('password')
+              <span class="text-red-500 font-mono">{{$message}}</span>
+              @enderror
 {{-- description --}}
 
               <div>
-                 <label class="block mt-4 text-sm">
+            <label class="block mt-4 text-sm">
                  <span class="text-gray-700 font-semibold font-mono dark:text-gray-400">
-               About
+               About:
                 </span>
-                <textarea
-                 class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray
-                 @error('verse')focus:border-red-400 focus:outline-none focus:shadow-outline-red form-input @enderror"
-                  rows="3"
-                  placeholder="Lorem ipsum dolor sit amet," name="about" >{{old('verse')}}</textarea>
+                <textarea class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray
+                 " rows="3" placeholder="Lorem ipsum dolor sit amet," name="about">{{$author->about}}</textarea>
+                 @error('about')
+                 <span class="text-red-500 font-mono">{{$message}}</span>
+                 @enderror
               </label>
                 <p class="mt-2 text-sm text-gray-500">
                   Brief description for your profile.

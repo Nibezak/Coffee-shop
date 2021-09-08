@@ -20,6 +20,8 @@ class NewsletterController extends Controller
     'email' => 'This Email could not be added , Sorry!.'
     ]);
     }
-    return back()->with('success','Successfully signed up');
+    // session()->flash('success', 'Successfully signed up');
+    return back()->with('success', 'Succesfully signed up!');
+
     }
 }

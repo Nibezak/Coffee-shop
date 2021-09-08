@@ -41,14 +41,12 @@ class PostsController extends Controller
      * @param  \App\Models\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(post $post)
+    public function show(Post $post)
     {
-        $read_time =  $readTime = (new ReadTime([$post]))->get();
         return view('posts.show', [
-         'post' => $post,
-         'read_time' =>$read_time
-
-    ]);
+                    'post' => $post,
+                    'read_time' =>  (new ReadTime([$post]))->get()
+                ]);
     }
 
     /**
@@ -80,9 +78,11 @@ class PostsController extends Controller
                 'body' => 'required',
                 'tag_id' => [Rule::exists('tags', 'id')]
            ]);
+
         $attributes['slug'] = Str::slug(request('title'));
+
         if(isset($attributes['photo'])){
-        $attributes['photo'] = request()->file('photo')->store('photos','public');
+            $attributes['photo'] = request()->file('photo')->store('photos','public');
         }
         $post->update($attributes);
 
@@ -104,10 +104,15 @@ class PostsController extends Controller
 
      public function review()
      {
-
-      $rating = request('rating');
-      dd($rating);
-          return back()->with('success', 'Thank you for the review');
+        Review::updateOrInsert(
+            [
+            'post_id' => request()->post,
+            'user_id' => request()->user()->id,
+            ],
+        // Update this otherwise create
+            ['rating' => request()->rating]
+        );
+        return back()->with('success', 'Thank you for the review');
      }
 
      protected function getPosts()

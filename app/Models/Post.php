@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Laravel\Scout\Searchable;
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
 
     protected $guarded=['id','created_at','updated_at'];
@@ -33,8 +33,38 @@ class Post extends Model
 
         }
 
+        /**
+         * Get comments for this post
+         * @return  collection of commetns
+         */
         public function comments()
         {
             return $this->hasMany(Comment::class);
         }
+
+        /**
+         * Get reviews for this post
+         * @return colelction
+         */
+         public function reviews()
+         {
+                 return $this->hasMany(Review::class);
+         }
+
+         /**
+          * Get reviews for the current logged in user
+          * 1. getMyRatingAttribute - remove the starting get and the ending attribute
+          * 2. MyRating - Split words based on the case (Upper case) it will be [My, Rating]
+          * 3. Join [my, rating] implode my_rating
+          * @return number
+          */
+          public function getMyRatingAttribute()
+          {
+                $userReview =  $this->reviews()->whereUserId(request()->user()->id)->first();
+                if(empty($userReview)){
+                    return null;
+                }
+
+                return $userReview->rating;
+          }
 }

@@ -10,6 +10,10 @@
     <div class="md:hidden lg:hidden">
 <x-account-button />
     </div>
+@else
+<div class="md:hidden lg:hidden">
+<x-login-button/>
+</div>
     @endauth
     </div>
     <x-navbar-links />

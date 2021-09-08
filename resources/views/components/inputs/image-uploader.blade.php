@@ -11,7 +11,7 @@
                         </span>
                     </div>
                 </div>
-                <input name={{$name}} id="fileInput"  class="hidden" type="file" onchange="let file = this.files[0];
+                <input name="{{$name}}" id="fileInput"  class="hidden" type="file" onchange="let file = this.files[0];
                     var reader = new FileReader();
 
                     reader.onload = function (e) {
