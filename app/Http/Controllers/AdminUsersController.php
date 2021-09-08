@@ -20,7 +20,7 @@ class AdminUsersController extends Controller
      public function update(User $author)
      {
         $attributes = $this->validateAttributes();
-        $attributes['avatar'] = request('avatar')->store('avatars', 'public');
+        if(!empty($attributes['avatar'])){$attributes['avatar'] = request('avatar')->store('avatars', 'public');}
         $attributes['about'] = request('about');
          $author->update($attributes);
         return back()->with('success', 'Settings saved!');

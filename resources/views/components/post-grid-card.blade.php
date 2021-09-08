@@ -7,7 +7,7 @@
        @if(isset($post->photo))
     <div class="mb-6 flex justify-center">
 <a href="/posts/{{$post->slug}}">
-    <img src="{{ asset("storage/". $post->photo) }}" class="w-full h-full">
+    <img src="{{ $post->photo }}" class="w-full h-full">
 </a>
     </div>
     @endif
@@ -48,8 +48,8 @@ Read more
 {{ $post->author->username }}
 </h1>
 <img
-src="https://i.pravatar.cc/?u={{$post->author->username}}"
-alt="avatar" class="hidden object-cover  mx-4 rounded-full sm:block" width="30" height="30">
+src="{{$post->author->avatar}}"
+alt="avatar" class="hidden object-cover  mx-4 rounded-full sm:block w-10 h-10" >
 
 </a>
 </div>

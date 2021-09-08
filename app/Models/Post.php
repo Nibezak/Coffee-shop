@@ -21,9 +21,9 @@ class Post extends Model
      }
 
 
-    public function getPhotoAttribute($value)
+     public function getPhotoAttribute($photo)
     {
-        return asset('storage/'. $value ?: "/images/default-photo.png");
+      return asset($photo ? 'storage/'.$photo : 'images/default-photo.png');
     }
      /**
       * @return collection / relationship

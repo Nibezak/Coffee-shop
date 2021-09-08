@@ -17,9 +17,9 @@ class PostTagsController extends Controller
 
     public function show(Tag $tag)
     {
-
+        $tags = $tag->posts()->simplePaginate(12);
     return view('posts.post-tags', [
-    'posts' => $tag->posts
+    'posts' =>$tags
     ]);
     }
     public function store()
@@ -28,10 +28,7 @@ class PostTagsController extends Controller
             'name' => ['required', 'max:20' ,'min:3'],
         ]);
         $attributes['slug'] = Str::slug(request('name'));
-
-
         Tag::create($attributes);
-
         return back()->with('success', 'Tag is created!');
     }
 }

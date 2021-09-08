@@ -20,7 +20,7 @@ $author = Auth::user();
                 avatar
         </x-slot>
         <x-slot name="default_image">
-    <img id="image" class="object-cover w-full h-32" src="{{$author->avatar}}">
+    <img id="image" class="object-cover w-full h-32" src="{{ $author->avatar }}">
         </x-slot>
     </x-inputs.image-uploader>
               </div class="block flex justify-center">

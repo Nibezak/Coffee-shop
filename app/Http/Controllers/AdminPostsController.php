@@ -40,8 +40,7 @@ class AdminPostsController extends Controller
         $attributes = new Post($this->validateAttributes());
         $attributes['user_id'] = auth()->user()->id;
         $attributes['slug'] = Str::slug(request('title'));
-        // $attributes['photo'] = request('photo')->storeAs('photos', request('photo')->getClientOriginalName(), 'publicPhotos');
-        if(isset($attributes['photo'])) { $attributes['photo'] = request('photo')->store('photos','public'); }
+        if(!empty($attributes['avatar'])) { $attributes['photo'] = request()->file('photo')->store('photos','public');}
         $attributes->save();
         $attributes->tags()->attach(request('tag_id'));
          return redirect(route('author-posts'))->with('success', 'Post has been Published');

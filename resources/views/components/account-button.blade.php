@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Auth;
 $author = Auth::user();
 @endphp
 <div class="relative px-2 block" x-data="{ isOpen: false }">
-                <button @click="isOpen = !isOpen" class="p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
-        <img src="{{$author->avatar}}" class="w-8 h-8 rounded-full border border-8 border-gray-200">
+                <button @click="isOpen = !isOpen" class="w-10 h-10 p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
+        <img src="{{$author->avatar}}" class="w-8 h-8 flex flex-shrink-0 rounded-full border border-8 border-gray-200">
 
                 </button>
                 <!-- green dot -->

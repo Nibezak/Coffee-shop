@@ -42,6 +42,11 @@
                   placeholder="New title" name="title" value="{{old('title')}}"
                 />
               </label>
+              <div class="flex justify-center">
+                    @error('title')
+            <span class="text-red-600">{{$message}}</span>
+              @enderror
+              </div>
 
 
               <label class="block mt-4 text-sm">
@@ -54,6 +59,11 @@
                   rows="3"
                   placeholder="Lorem ipsum dolor sit amet," name="verse">{{old('verse')}}</textarea>
               </label>
+                 <div class="flex justify-center">
+                    @error('verse')
+            <span class="text-red-600">{{$message}}</span>
+              @enderror
+              </div>
 
               <label class="block mt-4 text-sm">
                   <span class="text-gray-700 font-semibold font-mono dark:text-gray-400">
@@ -65,6 +75,12 @@
                   rows="3"
                   placeholder="Lorem ipsum dolor sit amet," name="body">{{old('body')}}</textarea>
               </label>
+                 <div class="flex justify-center">
+                    @error('body')
+            <span class="text-red-600">{{$message}}</span>
+              @enderror
+              </div>
+
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 font-semibold font-mono dark:text-gray-400">
                 Tags:

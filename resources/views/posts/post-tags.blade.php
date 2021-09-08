@@ -11,7 +11,7 @@
     <x-action-button>
 
     <x-previous-page-link />
-
+    {{-- {{$posts->name}} --}}
     </x-action-button>
 
     <x-filters-bar />
@@ -43,7 +43,7 @@
                @if(isset($post->photo))
     <div class="mb-6  flex justify-center">
 <a href="/posts/{{$post->slug}}">
-    <img src="{{ asset("storage/". $post->photo) }}" class="h-52 rounded-md w-full">
+    <img src="{{ $post->photo}}" class="h-52 rounded-md w-full">
 </a>
     </div>
     @endif
