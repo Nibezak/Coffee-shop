@@ -12,14 +12,12 @@ class UsersController extends Controller
 
          public function profile()
      {
-        $this->authorize('staff-only');
          $author = auth()->user();
-        return view('users.account.profile',compact('author'));
+        return view('accounts.profile',compact('author'));
      }
 
-      public function userAccess(User $author)
+      public function author_access(User $author)
       {
-        $this->authorize('staff-only');
-         return view('accounts/users/show', compact('author'));
+                return view('accounts/authors/show', compact('author'));
       }
 }

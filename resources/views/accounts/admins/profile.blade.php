@@ -22,7 +22,7 @@
                   </thead>
                   <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                     @foreach($authors as $author)
-                    @if(!$author->is_Admin)
+
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
@@ -32,7 +32,7 @@
                             <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                           </div>
                      <div>
-                            <a href="/accounts/users/access/{{$author->username}}" class="font-semibold hover:underline">{{$author->name}}</a>
+                            <a href="/accounts/author/{{$author->username}}" class="font-semibold hover:underline">{{$author->name}}</a>
                             <p class="text-xs text-gray-600 dark:text-gray-400">
                               {{$author->username}}
                             </p>
@@ -41,22 +41,29 @@
                         </div>
                       </td>
 
-                      <td class="px-4 py-3 text-xs">
-                        <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                          Admin
-                        </span>
-                      </td>
+          <td class="px-4 py-3 text-xs">
+          @if($author->is_Admin)
+      <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+          Admin
+     </span>
+          @else
+          <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
+            Editor
+            </span>
+          @endif
+
+          </td>
                       <td class="px-4 py-3 text-sm">
                        {{$author->created_at->diffForHumans()}}
                       </td>
                       <td class="px-4 py-3">
+                                    @if(!$author->is_Admin)
                         <div class="flex items-center space-x-4 text-sm">
                           <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-500 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
                             <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                             </svg>
                           </button>
-
 
                           <form method="POST" action="/accounts/admins/{{$author->username}}">
                             @method('DELETE')
@@ -68,9 +75,10 @@
                           </button>
                         </form>
                         </div>
+                        @endif
                       </td>
                     </tr>
-                    @endif
+
                     @endforeach
                   </tbody>
                 </table>

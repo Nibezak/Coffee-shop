@@ -1,16 +1,16 @@
 @props(['post'])
+@php
+use Illuminate\Support\Facades\DB;
+@endphp
 <div {{$attributes->merge(["class"=>"mt-6 max-w-4xl mx-auto rounded-lg shadow-md"])}}>
-
-
-
 <div class=" bg-white rounded-md">
-       @if(isset($post->photo))
+
     <div class="mb-6 flex justify-center">
 <a href="/posts/{{$post->slug}}">
-    <img src="{{ $post->photo }}" class="w-full h-full">
+    <img src="{{  $post->photo }}" class="w-full h-full">
 </a>
     </div>
-    @endif
+
     <div class="px-10">
 <div class=" px-3 flex bg-white items-center py-2 justify-between ">
     <span class="font-semibold text-gray-600">

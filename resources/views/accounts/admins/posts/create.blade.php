@@ -1,8 +1,8 @@
 <x-admins.layouts.layouts>
 
             <div  class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800" >
-                   <h4 class="mb-4 text-lg font-semibold bg-white text-blue-600 dark:text-gray-300">
-              Blog Post
+              <h4 class="mb-4 text-lg font-semibold font-mono px-12 text-blue-600 dark:text-gray-300">
+              CREATE BLOG POST
             </h4>
             <form  method="POST" action="/tags/create">
               @csrf

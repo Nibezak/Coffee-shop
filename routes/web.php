@@ -54,10 +54,9 @@ Route::group(['middleware' => 'auth'] , function()
     route::group(['middleware' => 'is_admin'], function()
     {
         // all routes relating to user that admin can see
-    Route::get('accounts/{author:username}', [AdminUsersController::class, 'dashboard'])->name('admin-dashboard');
-    Route::delete('accounts/admins/{author:username}', [AdminUsersController::class, 'destroy'])->name('delete-author');
+        // {author:username}'
+    Route::get('accounts/profile', [AdminUsersController::class, 'dashboard'])->name('admin-dashboard');
     Route::get('accounts/admins/settings', [AdminSettingsController::class, 'index'])->name('settings');
-    Route::get('accounts/users/access/{author:username}', [UsersController::class, 'userAccess'])->name('user-access');
     // all routes relating to post that Admin can see
     Route::get('admins/posts/author-posts', [AdminPostsController::class, 'author_posts'])->name('author-posts');
     Route::get('admins/posts/create', [AdminPostsController::class, 'create'])->name('create-post');
@@ -68,6 +67,13 @@ Route::group(['middleware' => 'auth'] , function()
     // Admins Updating the admin
     Route::patch('admins/settings/{author:username}', [AdminUsersController::class, 'update']);
     Route::patch('/admins/settings/{author:username}/password', [AdminUsersController::class , 'update_password']);
+
+    // create a new user from the admin panel
+Route::delete('accounts/admins/{author:username}', [AdminUsersController::class, 'destroy'])->name('delete-author');
+Route::get('accounts/author/{author:username}', [UsersController::class, 'author_access'])->name('author-access');
+ Route::get('account/author/create' ,[AdminUsersController::class, 'create'])->name('create-author');
+ Route::post('author/create',[AdminUsersController::class, 'store']);
+
     });
 
     Route::post("post/review", [PostsController::class, 'review']);

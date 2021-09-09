@@ -49,6 +49,10 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+     public function getAccountTypeAttribute()
+          {
+            $this->attribute['is_Admin'] = true;
+          }
      public function posts()
      {
         return $this->hasMany(Post::class)->orderBy('created_at','DESC');

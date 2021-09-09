@@ -1,64 +1,15 @@
-
-    <div class="image overflow-hidden">
-
-    <img class="h-auto w-full mx-auto" src="https://i.pravatar.cc/500?u={{$post->author->username}}" alt="">
-
-    </div>
-
-    <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">
-    {{$post->author->username}}
-    </h1>
-
-    <h3 class="text-gray-600 font-lg text-semibold leading-6">
-    Owner at Her Company Inc
-    .</h3>
-
-    <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">
-    Lorem ipsum dolor sit amet
-    consectetur adipisicing elit.
-    Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
-    <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-
-    <li class="flex items-center py-3">
-    <span class="font-semibold">Full Name:</span>
-    <span class="ml-auto">
-    <span class="">
-    {{$post->author->name}}
-    </span>
-    </span>
-    </li>
-    <li class="flex items-center py-3">
-
-
-
-    <span class="font-semibold">Total Posts:</span>
-    <span class="ml-auto">
-    <span>
-
-    {{ App\Models\Post::where('user_id', $post->user_id)->count()}}
-    </span>
-    </span>
-
-    </li>
-
-    <li class="flex items-center py-3">
-
-    <span class="font-semibold">
-    Member since
-    </span>
-
-    <span class="ml-auto">
-    {{$post->author->created_at->diffForHumans()}}
-    </span>
-
-    </li>
-    <li class="px-2 py-2  text-center">
-    @if(request()->is('posts/'.$post->slug ))
-    <a href="/authors/{{$post->author->username}}" class="underline text-blue-400 text-bold">
-    View all posts by the author
-    </a>
-    @endif
-
-
-    </li>
-    </ul>
+<div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Total clients
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    6389
+                  </p>
+                </div>
+              </div>

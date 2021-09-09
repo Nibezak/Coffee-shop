@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 class AdminUsersController extends Controller
 {
 
+
     public function dashboard(User $authors)
     {
     $authors = User::latest();
@@ -16,7 +17,25 @@ class AdminUsersController extends Controller
         'authors' =>$authors->Paginate(6),
     ]);
     }
+     public function create()
+     {
+        return view('accounts/authors.create');
+     }
 
+        public function store()
+        {
+          $attributes =  request()->validate([
+                'username' => ["required","max:30","min:3",Rule::unique('users','username')],
+                'name' =>   ['required', 'max:255', 'min:5'],
+                'email' =>  ['required', 'max:255', 'email',"unique:users,email"],
+                'password' => ['required', 'max:255', 'min:6','confirmed']
+            ]);
+          $attributes['is_Admin'] = request('accountType');
+
+            User::create($attributes);
+            session()->flash('success', 'Author has been created!');
+            return redirect(route('admin-dashboard'));
+        }
      public function update(User $author)
      {
         $attributes = $this->validateAttributes();
@@ -30,6 +49,7 @@ class AdminUsersController extends Controller
       {
               $password = request()->validate([
              'password' => ['max:255', 'min:6','confirmed'],]);
+              $author->update($password);
             return back()->with('success', 'Password Saved!');
       }
     public function destroy(User $author)

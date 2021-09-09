@@ -1,7 +1,7 @@
 <x-admins.layouts.layouts>
           <div class="container grid px-6 mx-auto">
-            <h4 class="mb-4 text-lg font-semibold text-blue-500 dark:text-gray-300">
-            All Posts
+            <h4 class="mb-4 text-lg font-semibold font-mono text-blue-500 dark:text-gray-300">
+            ALL YOUR POSTS
             </h4>
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
               <div class="w-full overflow-x-auto">

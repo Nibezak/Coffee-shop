@@ -1,4 +1,3 @@
-
 <div class="fixed top-0 mt-6 z-10 bg-gray-50 w-full ">
 @if(session()->has('success'))
 <div class=" transition transform duration-500 "

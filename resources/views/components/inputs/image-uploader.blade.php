@@ -1,5 +1,5 @@
      <div>
-                <div class="w-32 h-32 mb-1  rounded-lg overflow-hidden relative">
+                <div class="w-full h-full mb-1  rounded-lg overflow-hidden relative">
                     {{$default_image}}
                     <div class="absolute top-0 left-0 right-0 bottom-0 w-full block cursor-pointer flex items-center justify-center" onclick="document.getElementById('fileInput').click()">
                         <span  style="background-color: rgba(255, 255, 255, 0.65)" class="hover:bg-gray-100 text-gray-700 font-semibold py-2 px-4 text-sm   rounded-lg shadow-sm">
