@@ -12,9 +12,9 @@ class AdminPostsController extends Controller
 {
     public function author_posts(User $author)
     {
-    $author = Auth::user()->posts()->paginate(7);
+    $posts = Auth::user()->posts()->paginate(7);
     return view('accounts/admins/posts.author-posts',[
-    'posts' => $author,
+    'posts' => $posts,
     ]);
     }
 
@@ -37,7 +37,7 @@ class AdminPostsController extends Controller
 
         // Start by uploading a file to the server
         // and getting its path for the database
-        $attributes = new Post($this->validateAttributes());
+        $attributes = new Post($this->validateCreatedPost());
         $attributes['user_id'] = auth()->user()->id;
         $attributes['slug'] = Str::slug(request('title'));
         if(!empty($attributes['photo'])){$attributes['photo'] = request('photo')->store('photos', 'public');}
@@ -53,9 +53,9 @@ class AdminPostsController extends Controller
 
             public function update(Request $request, post $post)
     {
-        $attributes = $this->validateAttributes();
+        $attributes = $this->validateUpdatedPost();
         $attributes['slug'] = Str::slug(request('title'));
-        if(isset($attributes['photo'])) { $attributes['photo'] = request()->file('photo')->store('photos','public');}
+        if($attributes['photo'] ?? false) { $attributes['photo'] = request()->file('photo')->store('photos','public');}
         $post->update($attributes);
         return redirect(route('author-posts'))->with('success', 'Post Updated');
     }
@@ -68,14 +68,24 @@ class AdminPostsController extends Controller
         }
 
 
-     protected function validateAttributes()
+     protected function validateCreatedPost()
+     {
+        return  request()->validate([
+                'photo' => 'required|image|mimes:jpg,png,jpeg,gif|max:5048',
+                'title' => 'required',
+                'verse' => 'required|min:100',
+                'body' => 'required',
+                'tag_id' => ['required',Rule::exists('tags', 'id')]
+           ]);
+     }
+          protected function validateUpdatedPost()
      {
         return  request()->validate([
                 'photo' => 'image|mimes:jpg,png,jpeg,gif|max:5048',
                 'title' => 'required',
-                'verse' => 'required|max:315|min:100',
+                'verse' => 'required|min:100',
                 'body' => 'required',
-                'tag_id' => ['required',Rule::exists('tags', 'id')]
+                'tag_id' => [Rule::exists('tags', 'id')]
            ]);
      }
 

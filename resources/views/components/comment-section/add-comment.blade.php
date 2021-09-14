@@ -1,3 +1,7 @@
+@php
+use Illuminate\Support\Facades\Auth;
+$author = Auth::user();
+@endphp
 @auth
 @props(['post'])
 <div {{$attributes->merge(["class"=>"flex mx-auto items-center justify-center shadow-lg  mx-8 mb-4 max-w-lg"])}}>
@@ -5,7 +9,7 @@
       @csrf
       <div class="flex flex-wrap -mx-3 mb-6">
              <div class="pr-2 px-2 inline-flex">
-        <img src="https://i.pravatar.cc/?u={{auth()->user()->username}}" width="30" height="30" class="rounded-full border border-8 border-gray-200">
+        <img src="{{$author->avatar}}" class="w-8 h-8 flex flex-shrink-0 rounded-full border border-8 border-gray-200">
         <span class="px-2 py-1 text-sm font-semibold text-gray-900">{{Auth::user()->username}}</span>
         </div>
          <div class="w-full md:w-full px-3 mb-2 mt-2">

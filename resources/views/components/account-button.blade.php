@@ -4,10 +4,11 @@ use Illuminate\Support\Facades\Auth;
 $author = Auth::user();
 @endphp
 <div class="relative px-2 block" x-data="{ isOpen: false }">
+
                 <button @click="isOpen = !isOpen" class="w-10 h-10 p-1 bg-gray-200 rounded-full focus:outline-none focus:ring">
         <img src="{{$author->avatar}}" class="w-8 h-8 flex flex-shrink-0 rounded-full border border-8 border-gray-200">
-
                 </button>
+
                 <!-- green dot -->
                 <div class="absolute right-0 p-1 bg-green-400 rounded-full bottom-3 animate-ping"></div>
                 <div class="absolute right-0 p-1 bg-green-400 border border-white rounded-full bottom-3"></div>
@@ -29,19 +30,19 @@ $author = Auth::user();
                     <span class="text-gray-800">{{auth()->user()->name}}</span>
                     <span class="text-xs text-gray-400">{{auth()->user()->email}}</span>
                   </div>
-                  @can('staff-only')
                   <ul class="flex flex-col p-2 my-2 space-y-1">
                           <li>
                       <a href="{{ route('all-posts') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Blogs</a>
                     </li>
+                  @can('admin')
                     <li>
                       <a href="{{ route('admin-dashboard') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Admin Panel</a>
                     </li>
                     <li>
                       <a href="{{ route('settings') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Settings</a>
                     </li>
-                  </ul>
                   @endcan
+                  </ul>
                   <div class="block px-2 py-1 transition rounded-md hover:bg-gray-100 justify-start">
                 <x-logout-button/>
                   </div>

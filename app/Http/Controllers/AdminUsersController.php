@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Charts\authorsChart;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class AdminUsersController extends Controller
 {
 
@@ -13,10 +16,20 @@ class AdminUsersController extends Controller
     public function dashboard(User $authors)
     {
     $authors = User::latest();
+    $total_authors = User::pluck('created_at');
+$today_users = User::whereDate('created_at', today())->count();
+$yesterday_users = User::whereDate('created_at', today()->subDays(1))->count();
+$last_week = User::whereDate('created_at', today()->subWeek(1))->count();
+$authorsChart = new authorsChart;
+$authorsChart->labels($total_authors->values());
+$authorsChart->dataset('Author Tracking', 'line', [$last_week, $yesterday_users, $today_users])->color('#3498db')->backgroundColor('lightblue');
     return view('accounts.admins.profile',[
         'authors' =>$authors->Paginate(6),
+        'authorsChart' => $authorsChart,
+        'total_authors' =>$total_authors,
     ]);
     }
+
      public function create()
      {
         return view('accounts/authors.create');

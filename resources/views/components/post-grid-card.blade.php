@@ -29,7 +29,7 @@ class="text-2xl font-bold text-gray-700 hover:underline">
 {!! $post->title !!}
 </a>
 <a class="mt-2 text-gray-600 block" href="/posts/{{$post->slug}}">
-{!! $post->verse !!}
+ {!! Str::limit($post->verse, 215, '<strong class= "px-2">...</strong>') !!}
 </a>
 
 <div class="flex items-center justify-between mt-4 pb-6">

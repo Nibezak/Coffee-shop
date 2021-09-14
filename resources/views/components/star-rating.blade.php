@@ -3,7 +3,7 @@
 <form method="POST" action="/post/review">
     @csrf
     <input type="hidden" name="post" value="{{ $post->id }}">
-<fieldset class="rating w-full bg-transparent">
+<fieldset class="rating w-full  bg-transparent">
     <input type="radio" id="star5" name="rating" {{ $post->my_rating === 5 ? "checked='checked'" : "" }}
             value="{{5}}" onChange="this.form.submit()"/><label class = "full" for="star5" title="Awesome - 5 stars"></label>
     <input type="radio" id="star4half" name="rating" {{ $post->my_rating === 4.5 ? "checked='checked'" : "" }}

@@ -15,7 +15,7 @@
     use App\Http\Controllers\AdminPostsController;
     use App\Http\Controllers\AdminSettingsController;
     use App\Http\Controllers\UsersController;
-
+    use App\Http\Controllers\SponsorsController;
 
 
 
@@ -54,13 +54,20 @@ Route::group(['middleware' => 'auth'] , function()
     route::group(['middleware' => 'is_admin'], function()
     {
         // all routes relating to user that admin can see
-        // {author:username}'
+
+        // all sidebar links here
     Route::get('accounts/profile', [AdminUsersController::class, 'dashboard'])->name('admin-dashboard');
     Route::get('accounts/admins/settings', [AdminSettingsController::class, 'index'])->name('settings');
-    // all routes relating to post that Admin can see
-    Route::get('admins/posts/author-posts', [AdminPostsController::class, 'author_posts'])->name('author-posts');
     Route::get('admins/posts/create', [AdminPostsController::class, 'create'])->name('create-post');
-    Route::post("admins/posts/create", [AdminPostsController::class, 'store']);
+    Route::get('admins/posts/author-posts', [AdminPostsController::class, 'author_posts'])->name('author-posts');
+ Route::get('account/author/create' ,[AdminUsersController::class, 'create'])->name('create-author');
+ Route::get('account/sponsors', [SponsorsController::class, 'index'])->name('sponsors');
+ Route::get('account/ads/create', [SponsorsController::class, 'create'])->name('create_ad');
+
+
+    // all routes relating to post that Admin can see
+    Route::post('/accounts/sponsors/create', [SponsorsController::class, 'store']);
+    Route::post("admins/posts/create/", [AdminPostsController::class, 'store']);
     Route::get("admins/posts/{post}/edit", [AdminPostsController::class, 'edit'])->name('edit-post');
     Route::patch("admins/posts/{post}", [AdminPostsController::class, 'update']);
     Route::delete("admins/posts/{post}", [AdminPostsController::class, 'destroy']);
@@ -71,7 +78,6 @@ Route::group(['middleware' => 'auth'] , function()
     // create a new user from the admin panel
 Route::delete('accounts/admins/{author:username}', [AdminUsersController::class, 'destroy'])->name('delete-author');
 Route::get('accounts/author/{author:username}', [UsersController::class, 'author_access'])->name('author-access');
- Route::get('account/author/create' ,[AdminUsersController::class, 'create'])->name('create-author');
  Route::post('author/create',[AdminUsersController::class, 'store']);
 
     });

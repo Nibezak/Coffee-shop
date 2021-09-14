@@ -1,12 +1,12 @@
  <x-layout>
 
     <x-navbar/>
-    <div class="px-2 lg:px-12 py-8">
+    <div class="px-2 py-8">
 
 
 
     <div class="container flex justify-between mx-auto">
-    <div class="w-full lg:w-8/12">
+    <div class="w-full px-3 ">
     <div class="flex items-center justify-between">
     <x-action-button>
 
@@ -17,7 +17,7 @@
     <x-filters-bar />
 
     </div>
-    <div class="mt-6 max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+    <div class="mt-6 max-w-6xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
     <div class="flex items-center justify-between">
 
     <span class="font-semibold text-gray-600">
@@ -57,11 +57,12 @@
     <div class="flex items-center justify-between mt-4">
     <!-- component -->
     <!-- This is an example component -->
-    <div class="flex justify-center items-center">
+    <div class="flex flex-shrink-0 items-center">
 
     <x-star-rating :post="$post" />
-
-
+<span class="font-normal flex   text-gray-600 mx-6">
+  Average Ratings:  <p class="px-2">{{$averageReview}}</p>
+</span>
     </div>
     <div>
     <a href="/authors/{{$post->author->username}}" class="inline-flex justify-between items-center">
@@ -72,7 +73,7 @@
     </span>
     </p>
 
-    <img src="https://i.pravatar.cc/500?u={{$post->author->username}}" alt="" width="30" height="30" class="rounded-full">
+    <img src="{{$post->author->avatar}}" alt="" width="30" height="30" class="rounded-full">
 
     </a>
 
@@ -84,8 +85,7 @@
 
     </div>
 
-    <div class="sticky px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
-
+    <div class=" px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
     <div class="bg-white p-3 border-t-4 border-blue-400">
     @include('components.authors-info-card')
     </div>
@@ -117,6 +117,7 @@
 @foreach($post->comments as $comment)
 <x-comment-section.comment-block class="px-10" :comment="$comment" />
 @endforeach
+
 </section>
 
 

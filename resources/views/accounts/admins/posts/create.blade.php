@@ -18,7 +18,7 @@
                 </div>
               </label>
             </form>
-            <form method="POST" action="/admins/posts/create" enctype="multipart/form-data">
+            <form method="POST" action="/admins/posts/create/" enctype="multipart/form-data">
               @csrf
             <div class="flex justify-center mt-10">
               <x-inputs.image-uploader  value="{{old('photo')}}">
@@ -29,9 +29,11 @@
         <img id="image" class="object-cover w-full h-32" src="/images/default-photo.png">
         </x-slot>
               </x-inputs.image-uploader>
+              <div class="block">
               @error('photo')
             <span class="text-red-600">{{$message}}</span>
               @enderror
+            </div>
             </div>
               <label class="block text-sm">
               <span class="text-gray-700 font-semibold font-mono dark:text-gray-400">

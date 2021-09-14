@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 use Mtownsend\ReadTime\ReadTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -20,6 +21,7 @@ class PostsController extends Controller
      */
     public function index()
     {
+
     $posts = Post::latest();
     if(request('search')){return $this->getPosts();}
     return view('posts.index',[
@@ -43,9 +45,11 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
+        $averageReview = Review::avg('rating');
         return view('posts.show', [
+                    'averageReview' => $averageReview,
                     'post' => $post,
-                    'read_time' =>  (new ReadTime([$post]))->get()
+                    'read_time' =>  (new ReadTime([$post]))->get(),
                 ]);
     }
 
