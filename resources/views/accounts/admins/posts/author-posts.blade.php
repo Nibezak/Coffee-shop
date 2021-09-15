@@ -16,7 +16,7 @@
                     </tr>
                   </thead>
                   <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    @foreach($posts as $post)
+                    @forelse($posts as $post)
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
@@ -69,7 +69,14 @@
                         </div>
                       </td>
                     </tr>
-                    @endforeach
+                    @empty
+<div class="col-span-8 w-full h-full flex justify-center">
+    <div class="mt-32 py-3 fixed bg-gray-200 px-6 round-md text-gray-500 ">
+        It Appears , nothing Has been added  yet On this page , please <a class="text-blue-500" href="/accounts/ads/create">add Something
+        </a>
+    </div>
+</div>
+                    @endforelse
                   </tbody>
                 </table>
               </div>

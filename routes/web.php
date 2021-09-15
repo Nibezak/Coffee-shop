@@ -15,7 +15,7 @@
     use App\Http\Controllers\AdminPostsController;
     use App\Http\Controllers\AdminSettingsController;
     use App\Http\Controllers\UsersController;
-    use App\Http\Controllers\SponsorsController;
+    use App\Http\Controllers\AdsController;
 
 
 
@@ -61,12 +61,13 @@ Route::group(['middleware' => 'auth'] , function()
     Route::get('admins/posts/create', [AdminPostsController::class, 'create'])->name('create-post');
     Route::get('admins/posts/author-posts', [AdminPostsController::class, 'author_posts'])->name('author-posts');
  Route::get('account/author/create' ,[AdminUsersController::class, 'create'])->name('create-author');
- Route::get('account/sponsors', [SponsorsController::class, 'index'])->name('sponsors');
- Route::get('account/ads/create', [SponsorsController::class, 'create'])->name('create_ad');
+ Route::get('account/sponsors', [AdsController::class, 'index'])->name('sponsors');
+ Route::get('accounts/ads/create', [AdsController::class, 'create'])->name('create_ad');
+ Route::delete('accounts/ads/{ad}/delete',[AdsController::class, 'destroy']);
 
 
     // all routes relating to post that Admin can see
-    Route::post('/accounts/sponsors/create', [SponsorsController::class, 'store']);
+    Route::post('accounts/ads/create', [AdsController::class, 'store']);
     Route::post("admins/posts/create/", [AdminPostsController::class, 'store']);
     Route::get("admins/posts/{post}/edit", [AdminPostsController::class, 'edit'])->name('edit-post');
     Route::patch("admins/posts/{post}", [AdminPostsController::class, 'update']);

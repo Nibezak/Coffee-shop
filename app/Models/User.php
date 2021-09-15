@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = [];
+     // protected $dateFormat = 'Y/m/d';
 
 
     /**

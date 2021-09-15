@@ -47,7 +47,7 @@
 
     <div class="px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
 
-    <x-notice-board />
+    <x-notice-board :ad="$ads"/>
     </div>
 
     </div>

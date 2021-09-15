@@ -1,56 +1,40 @@
 <x-admins.layouts.layouts>
-
-{{-- <div class="bg-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-2xl mx-auto py-1 sm:py-24 lg:py-2 lg:max-w-none">
-      <h2 class="text-2xl font-extrabold text-gray-900">Collections</h2>
-
-      <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
-        <div class="group relative">
-          <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="w-full h-full object-center object-cover">
+    <div class="lg:grid lg:grid-cols-3 lg:gap-4">
+@forelse($ads as $ad)
+     <div class="group relative">
+          <div class="relative w-full bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 ">
+           {!!$ad->content!!}
           </div>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-              Desk and Office
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900">Work from home accessories</p>
-        </div>
+          <h3 class=" text-sm text-gray-500">
 
-        <div class="group relative">
-          <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg" alt="Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant." class="w-full h-full object-center object-cover">
-          </div>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-              Self-Improvement
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900">Journals and note-taking</p>
-        </div>
 
-        <div class="group relative">
-          <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-            <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="w-full h-full object-center object-cover">
-          </div>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-              Travel
-            </a>
+           <strong>Sponsor's name:  </strong>  {!! $ad->sponsor_name!!}
+
           </h3>
-          <p class="text-base font-semibold text-gray-900">Daily commute essentials</p>
+            <h3 class=" text-sm text-gray-500">
+
+            <strong> price paid : </strong>{!! number_format($ad->price)!!}
+
+          </h3>
+          <p class="text-base font-semibold text-gray-500">Title : {{$ad->title}}</p>
+        <div class="flex justify-between">
+          <button class="px-10 -py-1 mt-3 bg-green-500 rounded-md text-white focus:outline-none">Edit</button>
+          <form action="/accounts/ads/{{$ad->id}}/delete" method="POST">
+            @csrf
+            @method('DELETE')
+          <button class="px-4 py-2 mt-3 bg-red-500 rounded-md text-white focus:outline-none" type="submit">delete</button>
+
         </div>
-      </div>
+        </div>
+        @empty
+<div class="col-span-8 w-full h-full flex justify-center">
+    <div class="mt-32 py-3 fixed bg-gray-200 px-6 round-md text-gray-500 ">
+        It Appears , nothing Has been added  yet On this page , please <a class="text-blue-500" href="/accounts/ads/create">add Something
+        </a>
     </div>
-  </div>
-</div> --}}
-
-@foreach($sponsors as $sponsor)
-{!!$sponsor->ad!!}
-@endforeach
-
+</div>
+@endforelse
+</div>
 </x-admins.layouts.layouts>
+
+

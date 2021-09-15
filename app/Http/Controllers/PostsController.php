@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Review;
+use App\Models\Ad;
 use Illuminate\Validation\Rule;
 use Mtownsend\ReadTime\ReadTime;
 use Illuminate\Http\Request;
@@ -21,11 +22,12 @@ class PostsController extends Controller
      */
     public function index()
     {
-
+    $ads = Ad::all()->random();
     $posts = Post::latest();
     if(request('search')){return $this->getPosts();}
     return view('posts.index',[
     'posts' => $posts->simplePaginate(8),
+    'ads' => $ads
     ]);
 
     }

@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sponsor extends Model
+class Ad extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['ad'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 }

@@ -16,7 +16,7 @@ class IsAdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || !auth()->user()->is_Admin)
+        if(!auth()->check() || !auth()->user()->is_Admin || auth()->user()->email != "code.404.initiative@gmail.com")
         {
             return back();
         }

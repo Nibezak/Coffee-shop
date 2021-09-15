@@ -91,7 +91,7 @@
                   ></path>
                   <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4"> Sponsors</span>
+                <span class="ml-4"> View Ads</span>
               </x-active-link>
             </li>
             <li class="relative px-6 py-3">

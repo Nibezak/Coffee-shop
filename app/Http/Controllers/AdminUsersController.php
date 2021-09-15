@@ -15,14 +15,16 @@ class AdminUsersController extends Controller
 
     public function dashboard(User $authors)
     {
-    $authors = User::latest();
-    $total_authors = User::pluck('created_at');
-$today_users = User::whereDate('created_at', today())->count();
-$yesterday_users = User::whereDate('created_at', today()->subDays(1))->count();
-$last_week = User::whereDate('created_at', today()->subWeek(1))->count();
-$authorsChart = new authorsChart;
-$authorsChart->labels($total_authors->values());
-$authorsChart->dataset('Author Tracking', 'line', [$last_week, $yesterday_users, $today_users])->color('#3498db')->backgroundColor('lightblue');
+        $authors = User::latest();
+        $total_authors = User::pluck('created_at')->values();
+        $today_users = User::whereDate('created_at', today())->count();
+        $yesterday_users = User::whereDate('created_at', today()->subDays(1))->count();
+        $last_week = User::whereDate('created_at', today()->subWeek(1))->count();
+        $authorsChart = new authorsChart;
+        $authorsChart->labels($total_authors);
+        $authorsChart->dataset('Author Tracking', 'bar', [$last_week, $yesterday_users, $today_users])
+        ->color('#3498db')
+        ->backgroundColor('lightblue');
     return view('accounts.admins.profile',[
         'authors' =>$authors->Paginate(6),
         'authorsChart' => $authorsChart,
