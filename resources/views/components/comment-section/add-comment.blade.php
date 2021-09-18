@@ -28,7 +28,7 @@ $author = Auth::user();
       </form>
    </div>
    @else
-   <p class="text-sm  ">
+{{--    <p class="text-sm  ">
    <a href="{{ route('login') }}" class="text-blue-500">Login</a> or <a href="{{route('register') }}" class="text-blue-500">create an account</a> , to add a comment
-</p>
+</p> --}}
 @endauth

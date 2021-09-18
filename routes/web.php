@@ -6,7 +6,7 @@
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\PostsController;
     use App\Http\Controllers\SessionsController;
-    use App\Http\Controllers\RegisterController;
+    // use App\Http\Controllers\RegisterController;
     use App\Http\Controllers\PostTagsController;
     use App\Http\Controllers\AuthorsController;
     use App\Http\Controllers\PostCommentsController;
@@ -43,8 +43,8 @@
     //Posting a comment
 
     // RegisterController
-    Route::get('register',[RegisterController::class, 'create'])->middleware('guest')->name('register');
-    Route::post('register',[RegisterController::class, 'store'])->middleware('guest');
+    // Route::get('register',[RegisterController::class, 'create'])->middleware('guest')->name('register');
+    // Route::post('register',[RegisterController::class, 'store'])->middleware('guest');
     // sessionscontroller has the login and logout functinality and other sessions
     Route::get('login', [ SessionsController::class, 'create'])->middleware('guest')->name('login');  //login
     Route::post('login', [SessionsController::class, 'store']);
@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'] , function()
 {
         // all sidebar links here
     Route::get('accounts/profile', [AdminUsersController::class, 'dashboard'])->name('admin-dashboard');
-    Route::get('accounts/admins/settings', [AdminSettingsController::class, 'index'])->name('settings');
+    Route::get('accounts/settings', [AdminSettingsController::class, 'index'])->name('settings');
     Route::get('admins/posts/create', [AdminPostsController::class, 'create'])->name('create-post');
     Route::get('admins/posts/author-posts', [AdminPostsController::class, 'author_posts'])->name('author-posts');
  Route::get('account/author/create' ,[AdminUsersController::class, 'create'])->name('create-author');

@@ -48,9 +48,11 @@ class PostsController extends Controller
     public function show(Post $post)
     {
         $averageReview = Review::avg('rating');
+    $ads = Ad::all()->random();
         return view('posts.show', [
                     'averageReview' => $averageReview,
                     'post' => $post,
+                    'ads' => $ads,
                     'read_time' =>  (new ReadTime([$post]))->get(),
                 ]);
     }

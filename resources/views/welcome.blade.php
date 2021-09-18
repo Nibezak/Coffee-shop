@@ -5,7 +5,9 @@
 <header class="bg-white dark:bg-gray-800">
     <nav class="bg-white dark:bg-gray-800">
         <div class="container p-6 mx-auto">
-                    <span class="text-blue-500 text-2xl font-mono font-semibold">CodeInit.Inc</span>
+                    <span class="  w-1 h-1 ">
+                        <img src="/images/logo.png" class="w-12">
+                    </span>
 
             <div class="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
                 <a href="#" class="text-gray-800 dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6">home</a>
@@ -20,8 +22,8 @@
                 @endauth
                 @guest
                 <a href="{{route('login')}}" class="text-lg border-b-2 border-transparent  text-blue-500 hover:border-blue-500 mx-1.5 sm:mx-6">login</a>
-
-               <a href="{{route('register')}}" class="text-lg border-b-2 border-transparent  text-blue-500 hover:border-blue-500 mx-1.5 sm:mx-6">register</a>
+{{--
+           <a href="{{route('register')}}" class="text-lg border-b-2 border-transparent  text-blue-500 hover:border-blue-500 mx-1.5 sm:mx-6">register</a> --}}
                 @endguest
             </div>
         </div>
@@ -58,7 +60,7 @@
         </div>
 
         <div class="flex items-center justify-center w-full h-96 md:w-1/2 ">
-            <img class="object-cover w-full h-full max-w-2xl rounded-md " src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" alt="apple watch photo">
+            <img class="object-cover w-full h-full max-w-2xl rounded-md " src="/images/me.jpg" alt="apple watch photo">
         </div>
     </div>
 </header>

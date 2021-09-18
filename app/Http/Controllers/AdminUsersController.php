@@ -22,7 +22,7 @@ class AdminUsersController extends Controller
         $last_week = User::whereDate('created_at', today()->subWeek(1))->count();
         $authorsChart = new authorsChart;
         $authorsChart->labels($total_authors);
-        $authorsChart->dataset('Author Tracking', 'bar', [$last_week, $yesterday_users, $today_users])
+        $authorsChart->dataset('Author Tracking', 'line', [$last_week, $yesterday_users, $today_users])
         ->color('#3498db')
         ->backgroundColor('lightblue');
     return view('accounts.admins.profile',[

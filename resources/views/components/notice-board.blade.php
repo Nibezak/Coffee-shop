@@ -14,7 +14,7 @@ let's get <b>1000+</b> Subscribers
 </div>
 </div></a>
 
-<div class="mt-2 flex items-center p-4 bg-white rounded-lg shadow-xs">
+{{-- <div class="mt-2 flex items-center p-4 bg-white rounded-lg shadow-xs">
 <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full">
 
 <img src="/images/chime.png" class="w-16">
@@ -25,7 +25,7 @@ Sponsor-ship
 </p>
 <a href="#" class="text-blue-500">Create an Account</a> <p class="text-gray-600 font-mono"> for free and make your banking experience easier</p>
 </div>
-</div>
+</div> --}}
 </div>
 
 <div class="py-2  transition transform duration-500 "

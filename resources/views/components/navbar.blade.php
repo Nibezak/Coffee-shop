@@ -3,7 +3,9 @@
     <div class="flex items-center justify-between">
     <div>
     <a href="{{route("all-posts")}}" class="text-xl font-bold font-mono text-gray-800 md:text-2xl">
-                    <span class="text-blue-500 text-2xl font-mono font-semibold">CodeInit.Inc</span>
+    <a href="/posts" class="text-blue-500 text-2xl font-mono font-semibold">
+                     <img src="/images/logo.png" class="w-12">
+</a>
     </a>
     </div>
     @auth

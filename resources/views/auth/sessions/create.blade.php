@@ -4,14 +4,14 @@
 
     <!-- linkedin logo -->
     <div class=" flex w-96 ">
-    <span class="text-blue-500 text-2xl font-mono font-semibold">CodeInit.Inc</span>
+    <a href="/posts" class="text-blue-500 text-2xl font-mono font-semibold">CodeBlogs.Inc</a>
 
     </div>
 
     <!-- Layout  -->
     <div class="bg-white w-96 shadow-xl rounded p-5">
     <h1 class="text-3xl font-medium">Log In</h1>
-    <p class="text-sm text-blue-500">Keep You updated on All programming news</p>
+    <p class="text-sm text-blue-500 tracking-widest ">Only Users acknowledged by the admin can log in and publish posts</p>
     <form class="space-y-5 mt-5" method="POST" action="/login">
         @csrf
     <input type="email" class="w-full h-12 border border-gray-800 rounded px-3
@@ -31,7 +31,7 @@
     type="password"
     placeholder="password"
     required="required" />
-    <span class="text-blue-500 rounded-full px-3 ">show</span>
+{{--     <span class="text-blue-500 rounded-full px-3 ">show</span> --}}
     @error('password')
     <span class="text-red-500 text-sm font-mono">{{$message}}</span>
     @enderror
@@ -47,10 +47,10 @@
     </div>
 
     <!-- Footer -->
-    <p class="text-gray-600 text-md font-mono">New on Codeblog?
+    {{-- <p class="text-gray-600 text-md font-mono">New on Codeblog?
     <a href="{{route('register')}}" class="text-blue-500 font-medium text-sm">
     create an account</a>
-    </p>
+    </p> --}}
     </div>
 
 
