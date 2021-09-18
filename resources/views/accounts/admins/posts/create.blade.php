@@ -16,12 +16,15 @@
                     Save
                   </button>
                 </div>
+                  @error('name')
+                <span class="text-red-500 font-mono">{{$message}}</span>
+                  @enderror
               </label>
             </form>
-            <form method="POST" action="/admins/posts/create/" enctype="multipart/form-data">
+            <form method="POST" action="/admins/posts/create" enctype="multipart/form-data">
               @csrf
             <div class="flex justify-center mt-10">
-              <x-inputs.image-uploader  value="{{old('photo')}}">
+              <x-inputs.image-uploader>
                 <x-slot name="name">
                   photo
                 </x-slot>
@@ -93,7 +96,7 @@
               @enderror
               </label>
 
-{{--
+
                            <div class="mt-4 text-sm">
                   <span class="text-gray-700 font-semibold font-mono dark:text-gray-400">
                 Post Type:
@@ -103,7 +106,7 @@
                     <input
                       type="radio"
                       class="text-blue-600 form-radio focus:border-blue-400 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-gray"
-                      name="PostType"
+                      name="accountType"
                       value="personal"
                     />
                     <span class="ml-2">Public</span>
@@ -118,13 +121,13 @@
                     <span class="ml-2">Draft</span>
                   </label>
                 </div>
-              </div> --}}
+              </div>
 
               <button class="px-4 py-2 mt-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" type="submit">
               Publish Post
                 </button>
-            </div>
           </form>
+            </div>
 </x-admins.layouts.layouts>
 
 

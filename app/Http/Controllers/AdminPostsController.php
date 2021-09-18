@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Review;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -12,9 +13,12 @@ class AdminPostsController extends Controller
 {
     public function author_posts(User $author)
     {
+
     $posts = Auth::user()->posts()->paginate(7);
+    $review = Review::avg('rating');
     return view('accounts/admins/posts.author-posts',[
     'posts' => $posts,
+    'review' => $review,
     ]);
     }
 
@@ -40,8 +44,10 @@ class AdminPostsController extends Controller
         $attributes = new Post($this->validateCreatedPost());
         $attributes['user_id'] = auth()->user()->id;
         $attributes['slug'] = Str::slug(request('title'));
-        if(!empty($attributes['photo'])){$attributes['photo'] = request('photo')->store('photos', 'public');}
+        $attributes['photo'] = request('photo')->store('photos', 'public');
+
         $attributes->save();
+
         $attributes->tags()->attach(request('tag_id'));
          return redirect(route('author-posts'))->with('success', 'Post has been Published');
     }
@@ -71,7 +77,7 @@ class AdminPostsController extends Controller
      protected function validateCreatedPost()
      {
         return  request()->validate([
-                'photo' => 'required|image|mimes:jpg,png,jpeg,gif|max:5048',
+                'photo' => 'required|image|mimes:jpg,png,jpeg,gif',
                 'title' => 'required',
                 'verse' => 'required|min:100',
                 'body' => 'required',
@@ -81,7 +87,7 @@ class AdminPostsController extends Controller
           protected function validateUpdatedPost()
      {
         return  request()->validate([
-                'photo' => 'image|mimes:jpg,png,jpeg,gif|max:5048',
+                'photo' => 'image|mimes:jpg,png,jpeg,gif',
                 'title' => 'required',
                 'verse' => 'required|min:100',
                 'body' => 'required',

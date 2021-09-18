@@ -28,7 +28,10 @@ Sponsor-ship
 </div>
 </div>
 
-<div class="py-2">
+<div class="py-2  transition transform duration-500 "
+x-data="{show :false }"
+x-init= "setTimeout(() => show = true , 1000)"
+x-show = "show">
 {!!$ad->content!!}
 </div>
 

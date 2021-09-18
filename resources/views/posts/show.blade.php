@@ -54,16 +54,17 @@
 
     </div>
 
-    <div class="flex items-center justify-between mt-4">
+    <div class="block md:flex flex-shrink-0 items-center justify-between mt-4">
     <!-- component -->
     <!-- This is an example component -->
-    <div class="flex flex-shrink-0 items-center">
-
+<div>
+<div class="w-full  flex justify-start">
     <x-star-rating :post="$post" />
-<span class="font-normal flex   text-gray-600 mx-6">
-  Average Ratings:  <p class="px-2">{{$averageReview}}</p>
+</div>
+<span class="font-normal  inline-flex text-gray-600 mx-6">
+  Ratings:  <p class="px-2">{{$averageReview}}</p>
 </span>
-    </div>
+</div>
     <div>
     <a href="/authors/{{$post->author->username}}" class="inline-flex justify-between items-center">
 

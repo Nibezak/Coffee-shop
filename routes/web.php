@@ -63,12 +63,12 @@ Route::group(['middleware' => 'auth'] , function()
  Route::get('account/author/create' ,[AdminUsersController::class, 'create'])->name('create-author');
  Route::get('account/sponsors', [AdsController::class, 'index'])->name('sponsors');
  Route::get('accounts/ads/create', [AdsController::class, 'create'])->name('create_ad');
- Route::delete('accounts/ads/{ad}/delete',[AdsController::class, 'destroy']);
+ Route::delete('accounts/ads/{ad}',[AdsController::class, 'destroy']);
 
 
     // all routes relating to post that Admin can see
     Route::post('accounts/ads/create', [AdsController::class, 'store']);
-    Route::post("admins/posts/create/", [AdminPostsController::class, 'store']);
+    Route::post("admins/posts/create", [AdminPostsController::class, 'store']);
     Route::get("admins/posts/{post}/edit", [AdminPostsController::class, 'edit'])->name('edit-post');
     Route::patch("admins/posts/{post}", [AdminPostsController::class, 'update']);
     Route::delete("admins/posts/{post}", [AdminPostsController::class, 'destroy']);
