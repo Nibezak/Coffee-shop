@@ -51,10 +51,6 @@
 
 Route::group(['middleware' => 'auth'] , function()
 {
-    route::group(['middleware' => 'is_admin'], function()
-    {
-        // all routes relating to user that admin can see
-
         // all sidebar links here
     Route::get('accounts/profile', [AdminUsersController::class, 'dashboard'])->name('admin-dashboard');
     Route::get('accounts/admins/settings', [AdminSettingsController::class, 'index'])->name('settings');
@@ -81,7 +77,6 @@ Route::delete('accounts/admins/{author:username}', [AdminUsersController::class,
 Route::get('accounts/author/{author:username}', [UsersController::class, 'author_access'])->name('author-access');
  Route::post('author/create',[AdminUsersController::class, 'store']);
 
-    });
 
     Route::post("post/review", [PostsController::class, 'review']);
     Route::post("tags/create", [PostTagsController::class, 'store']);

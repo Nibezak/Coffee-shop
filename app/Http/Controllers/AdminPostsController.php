@@ -24,8 +24,7 @@ class AdminPostsController extends Controller
 
     public function create()
     {
-    $this->authorize('admin');
-    return view('accounts.admins.posts.create');
+        return view('accounts.admins.posts.create');
     }
 
 

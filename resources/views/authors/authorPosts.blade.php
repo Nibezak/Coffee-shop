@@ -88,16 +88,16 @@
 
 <div class="px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
 @if($posts->count())
-<div class="bg-white p-3 border-t-4 border-blue-400">
+{{-- <div class="bg-white p-3 border-t-4 border-blue-400">
 <x-authors-info-card :post="$post"/>
-</div>
+</div> --}}
 @else
 
 @endif
 
 <h1 class="mb-4 text-xl font-bold text-gray-700">Notice Board</h1>
 <div>
-<x-notice-board />
+    <x-notice-board :ad="$ads"/>
 
 </div>
 </div>

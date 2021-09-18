@@ -38,10 +38,16 @@ $author = Auth::user();
                     <li>
                       <a href="{{ route('admin-dashboard') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Admin Panel</a>
                     </li>
+
+                  @endcan
+                  @can('editor')
                     <li>
+                      <a href="{{ route('settings') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Dashboard</a>
+                    </li>
+                    @endcan
+                        <li>
                       <a href="{{ route('settings') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Settings</a>
                     </li>
-                  @endcan
                   </ul>
                   <div class="block px-2 py-1 transition rounded-md hover:bg-gray-100 justify-start">
                 <x-logout-button/>

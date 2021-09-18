@@ -24,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
           Gate::define('admin',fn(User $author)=> $author->is_Admin);
+          Gate::define('editor', fn(User $author)=> !$author->is_admin);
     }
 }

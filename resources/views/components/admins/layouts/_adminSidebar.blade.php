@@ -11,7 +11,7 @@
           </a>
 
           <ul>
-
+@can('admin')
               <li class="relative px-6 mt-6 py-2">
 
           {{--     inline-flex items-center w-full text-sm font-semibold text-blue-500 transition-colors duration-150 hover:text-blue-500 dark:hover:text-gray-200 dark:text-gray-100 --}}
@@ -33,6 +33,7 @@
                 <span class="ml-4">Dashboard</span>
             </x-active-link>
             </li>
+            @endcan
 
             <li class="relative px-6 py-3">
                     <x-active-link href="{{ route('create-post') }}" >
@@ -73,6 +74,7 @@
                 <span class="ml-4">View All Posts</span>
            </x-active-link>
             </li>
+@can('admin')
             <li class="relative px-6 py-3">
                                <x-active-link href="{{ route('sponsors') }}" >
 
@@ -94,6 +96,8 @@
                 <span class="ml-4"> View Ads</span>
               </x-active-link>
             </li>
+            @endcan
+@can('admin')
             <li class="relative px-6 py-3">
                             <x-active-link href="{{ route('create_ad') }}">
 
@@ -114,7 +118,7 @@
                 <span class="ml-4">Create new Ad</span>
               </x-active-link>
             </li>
-
+@endcan
             <li class="relative px-6 py-3">
                   <x-active-link href="{{ route('settings') }}">
                 <svg
@@ -133,6 +137,7 @@
               </x-active-link>
             </li>
           </ul>
+@can('admin')
           <div class="px-6 my-6">
             <a href="{{ route('create-author') }}"
               class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-500 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
@@ -141,5 +146,6 @@
               <span class="ml-2" aria-hidden="true">+</span>
             </a>
           </div>
+          @endcan
         </div>
       </aside>

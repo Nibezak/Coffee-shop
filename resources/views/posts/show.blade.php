@@ -62,7 +62,7 @@
     <x-star-rating :post="$post" />
 </div>
 <span class="font-normal  inline-flex text-gray-600 mx-6">
-  Ratings:  <p class="px-2">{{$averageReview}}</p>
+  Ratings:  <p class="px-2">{{ floatval($averageReview)}}</p>
 </span>
 </div>
     <div>
@@ -88,12 +88,13 @@
 
     <div class=" px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
     <div class="bg-white p-3 border-t-4 border-blue-400">
-    @include('components.authors-info-card')
+    {{-- @include('components.authors-info-card') --}}
     </div>
 
 
 
-    {{-- <x-notice-board /> --}}
+        <x-notice-board :ad="$ads"/>
+
     <div>
     <!-- component -->
     <section>
