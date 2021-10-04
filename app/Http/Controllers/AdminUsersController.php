@@ -16,19 +16,13 @@ class AdminUsersController extends Controller
     {
             $this->authorize('admin');
         $authors = User::latest();
-        $total_authors = User::pluck('created_at')->values();
-        $today_users = User::whereDate('created_at', today())->count();
-        $yesterday_users = User::whereDate('created_at', today()->subDays(1))->count();
-        $last_week = User::whereDate('created_at', today()->subWeek(1))->count();
-        $authorsChart = new authorsChart;
-        $authorsChart->labels($total_authors);
-        $authorsChart->dataset('Author Tracking', 'line', [$last_week, $yesterday_users, $today_users])
-        ->color('#3498db')
-        ->backgroundColor('lightblue');
+        // $authorsChart = new authorsChart;
+// $authorsChart->labels(['jan', 'fed ', 'mar','apr', 'may','june', 'july', 'august', 'sept', 'oct', 'nov', 'dec']);
+// $authorsChart->dataset('My dataset', 'bar', [1, 2, 3, 4]);
+// $authorsChart->dataset('My dataset 2', 'bar', [4, 3, 2, 1])->backgroundColor('lightblue');
     return view('accounts.admins.profile',[
         'authors' =>$authors->Paginate(6),
-        'authorsChart' => $authorsChart,
-        'total_authors' =>$total_authors,
+        // 'authorsChart' => $authorsChart,
     ]);
     }
 

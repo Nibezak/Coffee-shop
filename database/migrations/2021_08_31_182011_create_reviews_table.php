@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateReviewsTable extends Migration
 {
-    /**
+    /*
      * Run the migrations.
      *
      * @return void
@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
              $table->foreignId('post_id')->constrained()->cascadeOnDelete();
              $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->integer('rating');
+            $table->integer('rating')->default(0);
             $table->timestamps();
         });
     }

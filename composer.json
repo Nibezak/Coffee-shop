@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.8",
-        "algolia/algoliasearch-client-php": "^3.1",
+        "algolia/scout-extended": "^1.20",
         "consoletvs/charts": "6.*",
         "curl/curl": "^2.3",
         "fideloper/proxy": "^4.4",

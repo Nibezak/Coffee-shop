@@ -15,4 +15,5 @@ class AuthorsChart extends Chart
     {
         parent::__construct();
     }
+
 }

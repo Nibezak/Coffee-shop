@@ -18,8 +18,8 @@
 
           </h3>
           <p class="text-base font-semibold text-gray-500">Title : {{$ad->title}}</p>
-        <div class="flex justify-between">
-          <button class="px-10 -py-1 mt-3 bg-green-500 rounded-md text-white focus:outline-none">Edit</button>
+        <div class="flex justify-end">
+          {{-- <button class="px-10 -py-1 mt-3 bg-green-500 rounded-md text-white focus:outline-none">Edit</button> --}}
           <form method="POST" action="/accounts/ads/{{$ad->id}}">
             @method('DELETE')
             @csrf

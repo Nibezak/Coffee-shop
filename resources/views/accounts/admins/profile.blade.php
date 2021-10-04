@@ -87,17 +87,10 @@
   {{$authors->links()}}
 </div>
 <div class=" flex justify-around">
-<div class="w-1/2 h-1/2">
+{{-- <div class="w-4/5 h-4/5">
 {!! $authorsChart->container() !!}
 {!! $authorsChart->script() !!}
-</div>
-<div class=" hidden md:block lg:block px-2 text-center w-1/3">
-<h1 class="font-light text-gray-600  text-2xl tracking-wide">Track All Accounts from here</h1>
-<span class="font-thin py-3 mt-2 my-3 tracking-widest">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-</span>
-</div>
+</div> --}}
 </div>
 </x-admins.layouts.layouts>
 

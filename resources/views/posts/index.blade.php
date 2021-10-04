@@ -6,7 +6,6 @@
     <div class="px-6 py-8"> {{-- In referrence of the slot which contains everything visible to the page --}}
 
 
-
     <div class="container flex justify-between mx-auto">
     <div class="w-full lg:w-8/12">
     <div class="flex items-center justify-between">

@@ -22,7 +22,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-    $ads = Ad::all()->random();
+    $ads = Ad::orderByRaw('RAND()')->get();
     $posts = Post::latest();
     if(request('search')){return $this->getPosts();}
     return view('posts.index',[

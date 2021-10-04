@@ -32,7 +32,14 @@ Sponsor-ship
 x-data="{show :false }"
 x-init= "setTimeout(() => show = true , 1000)"
 x-show = "show">
+@if(!$ad)
 {!!$ad->content!!}
+@else
+<div class="mt-32 py-3 fixed bg-gray-200 px-6 round-md text-gray-500 ">
+        It Appears , nothing Has been added  Contact us to earn this , Ad Spot <a class="text-blue-500" href="/accounts/ads/create">code.404.initiative
+        </a>
+    </div>
+@endif
 </div>
 
 <div>

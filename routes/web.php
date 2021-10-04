@@ -33,6 +33,9 @@
     Route::get('/', function(){
         return view('welcome');
     });
+        Route::get('about', function(){
+        return view('about');
+    });
     // everything assoicated with finding a post and any other attachment to the post
     Route::get('posts', [PostsController::class, 'index'])->name('all-posts');
     Route::get('posts/{post:slug}', [PostsController::class, 'show'])->name('show-post');

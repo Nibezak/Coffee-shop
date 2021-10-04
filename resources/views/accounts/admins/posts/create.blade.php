@@ -101,7 +101,7 @@
                   <span class="text-gray-700 font-semibold font-mono dark:text-gray-400">
                 Post Type:
                 </span>
-                <div class="mt-2">
+         {{--        <div class="mt-2">
                   <label class="inline-flex items-center text-gray-600 dark:text-gray-400" >
                     <input
                       type="radio"
@@ -120,7 +120,7 @@
                     />
                     <span class="ml-2">Draft</span>
                   </label>
-                </div>
+                </div> --}}
               </div>
 
               <button class="px-4 py-2 mt-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" type="submit">
