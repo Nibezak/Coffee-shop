@@ -27,21 +27,19 @@ Sponsor-ship
 </div>
 </div> --}}
 </div>
-
-<div class="py-2  transition transform duration-500 "
+<div class="py-2 bottom-0 transition transform duration-500 "
 x-data="{show :false }"
 x-init= "setTimeout(() => show = true , 1000)"
 x-show = "show">
-@if(!$ad)
-{!!$ad->content!!}
+@if($ad)
+{{dd($ad)->values()}}
 @else
-<div class="mt-32 py-3 fixed bg-gray-200 px-6 round-md text-gray-500 ">
-        It Appears , nothing Has been added  Contact us to earn this , Ad Spot <a class="text-blue-500" href="/accounts/ads/create">code.404.initiative
+<div class=" py-3 mt-2 mb-2 pb-1 pt-2 bg-gray-200 px-6 round-md text-gray-500 ">
+        It Appears , nothing Has been added  Contact us to earn this , Ad Spot <a class="text-blue-500" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">code.404.initiative
         </a>
     </div>
 @endif
 </div>
-
 <div>
     <a href="#" class="text-blue-500 px-3 py-3 mb-2">want to earn a place on the notice board?</a>
 </div>

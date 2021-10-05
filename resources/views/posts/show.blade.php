@@ -87,17 +87,13 @@
     </div>
 
     <div class=" px-8 mt-1 h-1/2 hidden w-4/12 -mx-8 lg:block">
-
-
-
-
-        <x-notice-board :ad="$ads"/>
-
     <div>
+         <x-notice-board :ad="$ads"/>
     <!-- component -->
     <section>
         <x-comment-section.add-comment :post="$post"/>
     </section>
+
     <section>
 @foreach($post->comments as $comment)
 <x-comment-section.comment-block :comment="$comment" />
