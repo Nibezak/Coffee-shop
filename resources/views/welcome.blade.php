@@ -58,6 +58,7 @@
                         @error('email')
                        <span class="text-red-600 text-sm font-semibold px-3 py-2"> {{$message}}</span>
                         @enderror
+                        <span class="text-gray-400">Sometimes our emails ends up in the spam folder</span>
                     </div>
 
                     <button class="block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md md:inline hover:bg-blue-400" type="submit">Sign up for NewsLetter</button>

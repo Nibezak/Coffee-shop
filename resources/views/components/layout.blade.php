@@ -7,7 +7,8 @@ $author = Auth::user();
     <html>
     <head>
     <meta charset="utf-8">
-    <title>CodeShell</title>
+    <title>TheHub</title>
+    <link rel="icon" href="/images/logo.png" sizes="100x100">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/tailwind.css">
     <link rel="stylesheet" type="text/css" href="/css/editor.css">

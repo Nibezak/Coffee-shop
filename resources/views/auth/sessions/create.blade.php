@@ -3,8 +3,15 @@
     <div class="h-screen bg-white flex flex-col space-y-10 justify-center items-center">
 
     <!-- linkedin logo -->
-    <div class=" flex w-96 ">
-    <a href="/posts" class="text-blue-500 text-2xl font-mono font-semibold">CodeBlogs.Inc</a>
+    <div class=" flex w-96 px-10  ">
+    <a href="/posts" class=" text-blue-500 text-2xl font-mono font-semibold" style="letter-spacing: -6px;">
+        <span class="text-blue-400">T</span>
+        <span class="text-yellow-300">h</span>
+        <span class="text-blue-400">e</span>
+        <span class="text-red-600">H</span>
+        <spa class="text-blue-500">u</span>
+        <span class="text-green-400">b</span>
+    </a>
 
     </div>
 
@@ -37,9 +44,9 @@
     @enderror
     </div>
 
-    <div class="">
+   {{--  <div class="">
     <a href="#!" class="font-medium text-blue-500  rounded-full p-2">Forgot password?</a>
-    </div>
+    </div> --}}
 
     <button class="text-center w-full bg-blue-500 rounded-full text-white py-3 font-medium" type="submit">Log in</button>
 
