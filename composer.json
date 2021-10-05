@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
         "mailchimp/marketing": "^3.0",
-        "mtownsend/read-time": "^2.0"
+        "mtownsend/read-time": "^2.0",
+        "spatie/laravel-medialibrary": "^9.0.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

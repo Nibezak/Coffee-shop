@@ -22,7 +22,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-    $ads = Ad::orderByRaw('RAND()')->get();
+    $ads = Ad::all()->random();
     $posts = Post::latest();
     if(request('search')){return $this->getPosts();}
     return view('posts.index',[
@@ -48,7 +48,7 @@ class PostsController extends Controller
     public function show(Post $post)
     {
         $averageReview = Review::avg('rating');
-    $ads = Ad::orderByRaw('RAND()')->get();
+    $ads = Ad::all()->random();
         return view('posts.show', [
                     'averageReview' => $averageReview,
                     'post' => $post,

@@ -16,7 +16,7 @@
     use App\Http\Controllers\AdminSettingsController;
     use App\Http\Controllers\UsersController;
     use App\Http\Controllers\AdsController;
-
+    use App\Http\Controllers\ImagesController;
 
 
     /*

@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
              $table->foreignId('post_id')->constrained()->cascadeOnDelete();
              $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->integer('rating')->default(0);
+            $table->integer('rating');
             $table->timestamps();
         });
     }

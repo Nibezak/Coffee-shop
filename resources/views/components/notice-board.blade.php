@@ -1,4 +1,4 @@
-
+@props(['ad'])
 <div class="shadow-lg ">
     <a href="https://www.youtube.com/channel/UCwk7eIb_6omKANWoedv5Hfw" target="_blank">    <div class="mt-2 flex items-center p-4 bg-white rounded-lg shadow-xs">
 <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full">
@@ -32,7 +32,7 @@ x-data="{show :false }"
 x-init= "setTimeout(() => show = true , 1000)"
 x-show = "show">
 @if($ad)
-{{dd($ad)->values()}}
+{!!$ad->content!!}
 @else
 <div class=" py-3 mt-2 mb-2 pb-1 pt-2 bg-gray-200 px-6 round-md text-gray-500 ">
         It Appears , nothing Has been added  Contact us to earn this , Ad Spot <a class="text-blue-500" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">code.404.initiative
@@ -41,5 +41,6 @@ x-show = "show">
 @endif
 </div>
 <div>
-    <a href="#" class="text-blue-500 px-3 py-3 mb-2">want to earn a place on the notice board?</a>
+    <a href="https://mail.google.com/mail/u/0/#inbox" class="text-gray-400 font-light">want to earn a place on the notice board? Talk to us on Gmail
+        <span class="text-blue-500 px-3 py-3 mb-2">code.404.initiative@gmail.com< </span></a>
 </div>
