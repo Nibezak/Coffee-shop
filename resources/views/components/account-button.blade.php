@@ -31,6 +31,10 @@ $author = Auth::user();
                     <span class="text-xs text-gray-400">{{auth()->user()->email}}</span>
                   </div>
                   <ul class="flex flex-col p-2 my-2 space-y-1">
+                        <li>
+                      <a href="/" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Home / Menu</a>
+                    </li>
+
                           <li>
                       <a href="{{ route('all-posts') }}" class="block px-2 py-1 transition text-sm font-semibold text-gray-500 px-2 py-2 rounded-md hover:bg-gray-100">Blogs</a>
                     </li>
