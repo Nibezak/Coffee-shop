@@ -1,110 +1,200 @@
-<!-- component -->
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="icon" href="/images/logo.png" sizes="100x100">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About us</title>
+  <link rel="stylesheet" type="text/css" href="./css/tailwind.css">
+</head>
+<style type="text/css">
+  .bg-coffee {
+  background: linear-gradient(to bottom, #ffeea6, #f1b55d);
+}
+</style>
+<body>
+  <nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
 
-<main class="profile-page">
-  <section class="relative block h-500-px">
-    <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
-            background-image: url('/images/mac.jpg');
-          ">
-      <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
-    </div>
-    <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
-      <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-        <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
-    </div>
-  </section>
-  <section class="relative py-16 bg-blueGray-200">
-    <div class="container mx-auto px-4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
-        <div class="px-6">
-          <div class="flex flex-wrap justify-center">
-            <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-              <div class="relative">
-                <img alt="..." src="https://avatars.githubusercontent.com/u/58547511?v=4" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
-              </div>
-            </div>
-            <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-              <div class="py-6 px-3 mt-32 sm:mt-0">
-                <a href="/posts" class="bg-blue-500 active:bg-blue-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" type="button" style="background: #3498db;">
-                    Blog
-                </a>
-              </div>
-            </div>
-            <div class="w-full lg:w-4/12 px-4 lg:order-1">
-              <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                <div class="mr-4 p-3 text-center">
-                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">18</span><span class="text-sm text-blueGray-400">Age</span>
-                </div>
-                <div class="mr-4 p-3 text-center">
-                  <span class="text-xl font-bold block  tracking-wide text-blueGray-600">4 Years</span><span class="text-sm text-blueGray-400">Experience</span>
-                </div>
-                <div class="lg:mr-4 p-3 text-center">
-                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">6+</span><span class="text-sm text-blueGray-400">Projects</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-center mt-12">
-            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-              Nibeza N. Kevin
-            </h3>
-            <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-              <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-              Kigali , Rwanda
-            </div>
-            <div class="mb-2 text-blueGray-600 mt-10">
-              <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Software Enginneer
-            </div>
-            <div class="mb-2 text-blueGray-600">
-              <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>Excella School (Math Economics Computer science)
-            </div>
-          </div>
-          <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
-            <div class="flex flex-wrap justify-center">
-              <div class="w-full lg:w-9/12 px-4">
-                <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                  A Software Engineer passionate about his work,
-                  I have been learning the art of computer science ever since I was a little boy,
-                  and I am growing to like it even more
-                </p>
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
 
-              </div>
-            </div>
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <a href="/">
+          <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+        </a>
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
+
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
+
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
+
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
           </div>
-          <center>
-          <div class="flex justify-center">
-            <a href="https://www.instagram.com/itskevin_013/">
-              <div class="px-4 py-5 flex-auto">
-                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-5 shadow-lg rounded-full bg-gray-100">
-                    <img src="/images/instagram.png">
-                  </div>
-                  <h6 class="text-xl font-md text-gray-300">itskevin_013</h6>
-                </div>
-            </a>
-<a href="https://www.youtube.com/channel/UCwk7eIb_6omKANWoedv5Hfw">
-<div class="px-4 py-5 flex-auto">
-                <div class="text-white p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-5 shadow-lg rounded-full bg-gray-100">
-                    <img src="/images/youtube.png">
-                  </div>
-                  <h6 class="text-xl font-md text-gray-300">Code.initiative</h6>
-                </div>
-            </a>
-<a href="https://twitter.com/NibezaK">
-                <div class="px-4 py-5 flex-auto">
-              <div class="text-white p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-5 shadow-lg rounded-full bg-gray-100">
-                    <img src="/images/twitter.png">
-                  </div>
-                  <h6 class="text-xl font-md text-gray-300">NibezaK</h6>
-                </div>
-            </a>
-          </div>
-      </center>
         </div>
       </div>
     </div>
+  </div>
 
-  </section>
-</main>
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
+
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+
+      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+    </div>
+  </div>
+</nav>
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About us</h2>
+      <p class="mt-2 text-lg leading-8 text-gray-600">Learn how to grow your business with our expert advice.</p>
+    </div>
+    <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <article class="flex max-w-xl flex-col items-start justify-between">
+        <div class="flex items-center gap-x-4 text-xs">
+          <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+          <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+        </div>
+        <div class="group relative">
+          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Boost your conversion rate
+            </a>
+          </h3>
+          <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+        </div>
+        <div class="relative mt-8 flex items-center gap-x-4">
+          <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+          <div class="text-sm leading-6">
+            <p class="font-semibold text-gray-900">
+              <a href="#">
+                <span class="absolute inset-0"></span>
+                Michael Foster
+              </a>
+            </p>
+            <p class="text-gray-600">Co-Founder / CTO</p>
+          </div>
+        </div>
+      </article>
+
+            <article class="flex max-w-xl flex-col items-start justify-between">
+        <div class="flex items-center gap-x-4 text-xs">
+          <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+          <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+        </div>
+        <div class="group relative">
+          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Boost your conversion rate
+            </a>
+          </h3>
+          <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+        </div>
+        <div class="relative mt-8 flex items-center gap-x-4">
+          <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+          <div class="text-sm leading-6">
+            <p class="font-semibold text-gray-900">
+              <a href="#">
+                <span class="absolute inset-0"></span>
+                Michael Foster
+              </a>
+            </p>
+            <p class="text-gray-600">Co-Founder / CTO</p>
+          </div>
+        </div>
+      </article>
+
+            <article class="flex max-w-xl flex-col items-start justify-between">
+        <div class="flex items-center gap-x-4 text-xs">
+          <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+          <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+        </div>
+        <div class="group relative">
+          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Boost your conversion rate
+            </a>
+          </h3>
+          <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+        </div>
+        <div class="relative mt-8 flex items-center gap-x-4">
+          <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+          <div class="text-sm leading-6">
+            <p class="font-semibold text-gray-900">
+              <a href="#">
+                <span class="absolute inset-0"></span>
+                Michael Foster
+              </a>
+            </p>
+            <p class="text-gray-600">Co-Founder / CTO</p>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- More posts... -->
+
+
+    </div>
+  </div>
+</div>
+<section class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20"></div>
+  <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+  <div class="mx-auto max-w-2xl lg:max-w-4xl">
+    <img class="mx-auto h-12" src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg" alt="">
+    <figure class="mt-10">
+      <blockquote class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+        <p>“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”</p>
+      </blockquote>
+      <figcaption class="mt-10">
+        <img class="mx-auto h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+        <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+          <div class="font-semibold text-gray-900">Judith Black</div>
+          <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
+            <circle cx="1" cy="1" r="1" />
+          </svg>
+          <div class="text-gray-600">CEO of Workcation</div>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+</body>
+</html>

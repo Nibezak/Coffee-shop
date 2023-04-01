@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdsTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->text('content')->nullable();
-            $table->string('sponsor_name')->nullable();
-            $table->integer('price')->unsigned()->nullable();
-            $table->string('title')->nullable();
+            $table->string('thumbnail')->default('https://p7.hiclipart.com/preview/557/951/679/fast-…se-the-elegant-restaurant-menu-pattern-vector.jpg');
+            $table->string('name');
+            $table->string('verse');
+            $table->string('price');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateAdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ads');
+        Schema::dropIfExists('products');
     }
 }

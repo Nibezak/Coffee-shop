@@ -20,17 +20,21 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+
+public function index()
+{
     $ads = Ad::all()->random();
     $posts = Post::latest();
-    if(request('search')){return $this->getPosts();}
-    return view('posts.index',[
-    'posts' => $posts->simplePaginate(8),
-    'ads' => $ads
-    ]);
 
+    if (request('search')) {
+        return $this->getPosts();
     }
+
+    return view('posts.index', [
+        'posts' => $posts->simplePaginate(8),
+        'ads' => $ads,
+    ]);
+}
 
     /**
      * Show the form for creating a new resource.

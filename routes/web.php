@@ -17,6 +17,8 @@
     use App\Http\Controllers\UsersController;
     use App\Http\Controllers\AdsController;
     use App\Http\Controllers\ImagesController;
+    use App\Http\Controllers\ProductsController;
+
 
 
     /*
@@ -30,9 +32,7 @@
     |
     */
 
-    Route::get('/', function(){
-        return view('welcome');
-    });
+    Route::get('/', [ProductsController::class, 'welcome'])->name('menu');
         Route::get('about', function(){
         return view('about');
     });
@@ -63,6 +63,11 @@ Route::group(['middleware' => 'auth'] , function()
  Route::get('account/sponsors', [AdsController::class, 'index'])->name('sponsors');
  Route::get('accounts/ads/create', [AdsController::class, 'create'])->name('create_ad');
  Route::delete('accounts/ads/{ad}',[AdsController::class, 'destroy']);
+ Route::get('accounts/products/create', [ProductsController::class, 'create'])->name('create_product');
+ Route::post('/accounts/products/create', [ProductsController::class, 'store']);
+ Route::get('accounts/products', [ProductsController::class, 'index'])->name('products');
+ Route::delete('/accounts/products/{product}', [ProductsController::class,'destroy'])->name('delete_product');
+
 
 
     // all routes relating to post that Admin can see

@@ -4,15 +4,7 @@
 
     <!-- linkedin logo -->
     <div class=" flex w-96 px-10  ">
-    <a href="/posts" class=" text-blue-500 text-2xl font-mono font-semibold" style="letter-spacing: -6px;">
-        <span class="text-blue-400">T</span>
-        <span class="text-yellow-300">h</span>
-        <span class="text-blue-400">e</span>
-        <span class="text-red-600">H</span>
-        <spa class="text-blue-500">u</span>
-        <span class="text-green-400">b</span>
-    </a>
-
+        <img src="./images/logo.png" width="100">
     </div>
 
     <!-- Layout  -->
