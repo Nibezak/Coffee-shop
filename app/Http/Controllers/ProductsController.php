@@ -7,7 +7,7 @@ use App\Models\Product;
 class ProductsController extends Controller
 {
     public function welcome(){
-        $products = Product::all();
+        $products = Product::latest()->get();
         return view('welcome',compact('products'));
     }
 
@@ -24,9 +24,9 @@ class ProductsController extends Controller
 {
     // validate the form data
     $validatedData = $request->validate([
-        'thumbnail' => 'required|string',
-        'name' => 'required|string|max:30',
-        'verse' => 'required|string|max:30',
+        'thumbnail' => 'required',
+        'name' => 'required|string',
+        'verse' => 'required|string',
         'price' => 'required|numeric',
     ]);
 
